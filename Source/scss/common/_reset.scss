@@ -1,0 +1,43 @@
+
+body { 
+	margin:0; 
+	padding:0; 
+	background:#fff; 
+	}
+
+* { 
+	outline:none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+	}
+
+img  { border:0 }
+
+h1,h2,h3,h4,h5,h6      { 
+ 	padding:0; 
+	margin:0; 
+	line-height:normal;
+	}
+
+p { 
+	padding:0; 
+	margin:0 0 10px;
+	}
+ 
+
+ 
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
+ 
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	
+	-moz-border-radius: 0px; 
+    -webkit-border-radius: 0px;  
+    -khtml-border-radius: 0px;  
+    border-radius: 0px; 	
+	}
+
+ 

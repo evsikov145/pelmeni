@@ -1,0 +1,72 @@
+.header {
+
+  min-height: 130px;
+  margin-top: 35px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  &-block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1513px;
+    margin: 0 auto;
+  }
+}
+
+.logo {
+  background: url("../images/svg/logo.svg") center no-repeat;
+  background-size: 151px 130px;
+  width: 151px;
+  height: 130px;
+  font-size: 0;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  a {
+    color: $color-white;
+    font-size: 26px;
+    margin: 0 24px;
+    transition: .5s;
+    &:hover {
+      transition: .5s;
+      color: $color-red;
+    }
+  }
+}
+
+.header__phone {
+  color: $color-white;
+  font-size: 26px;
+  margin-right: 34px;
+  transition: .5s;
+}
+
+.header-cart {
+  background: url("../images/svg/cart.svg") center no-repeat;
+  background-size: 47px 45px;
+  width: 47px;
+  height: 45px;
+  position: relative;
+  cursor: pointer;
+  &__count {
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: $color-white;
+    background: $color-green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

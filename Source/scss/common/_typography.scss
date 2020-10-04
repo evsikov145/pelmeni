@@ -1,0 +1,76 @@
+body {
+  font-size: 16px;
+  font-family: $font-balsamiq;
+  font-weight: 400;
+  min-height: 100%;
+  line-height: 1;
+}
+
+a {
+  color: $color-green;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: .5s;
+  color: $color-red;
+}
+
+h1, h2, h3 {
+  font-family: $font-caveat;
+}
+
+h1 {
+  font-size: 150px;
+  font-weight: 700;
+  color: $color-white;
+}
+
+h2 {
+  font-size: 120px;
+  font-weight: 400;
+  color: inherit;
+  margin-bottom: 50px;
+}
+
+h3 {
+  font-size: 70px;
+  font-weight: 400;
+  color: $color-white;
+}
+
+h4 {
+  font-size: 40px;
+  font-weight: 400;
+  color: $color-white;
+}
+
+h5 {
+  font-size: 36px;
+  font-weight: 400;
+  color: $color-white;
+}
+
+h6 {
+  font-size: 30px;
+  font-weight: 400;
+  color: $color-black;
+}
+
+p {
+  font-size: 18px;
+  font-family: $font-balsamiq;
+  margin-bottom: 15px;
+  color: $color-black;
+}
+span {
+  font-size: 20px;
+  color: $color-gray;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+

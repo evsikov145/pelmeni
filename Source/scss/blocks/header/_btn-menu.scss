@@ -1,0 +1,68 @@
+.btn-menu {
+ 	width:20px;
+	height:80px;
+ 	cursor:pointer;
+	overflow:hidden;	
+ 	z-index:99999;
+	position:relative;
+ 	}
+
+	.btn-menu span {
+		display: block;
+		position: absolute;
+		height: 3px;
+		width: 20px;
+		background: #000;
+ 		opacity: 1;
+		top: 50%;
+		left: 0;
+		margin-top:31px;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+		}
+		
+  	.btn-menu:hover span {
+		background: #eb3300 !important;
+		}
+    
+ 
+
+.btn-menu span:nth-child(1) {
+  top: 0px;
+}
+
+.btn-menu span:nth-child(2),
+.btn-menu span:nth-child(3) {
+  top: 7px;
+}
+
+.btn-menu span:nth-child(4) {
+  top: 14px;
+}
+ 
+.menu-active .btn-menu span:nth-child(1) {
+  top: 7px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu-active .btn-menu span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-active .btn-menu span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.menu-active  .btn-menu span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+		

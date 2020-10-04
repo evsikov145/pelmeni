@@ -1,0 +1,13 @@
+@import 'common/reset';
+
+@import 'base/fonts';
+
+@import 'variable';
+
+@import 'common/typography' , 'common/template';
+
+@import 'blocks/header/header','blocks/header/btn-menu', 'blocks/promo', 'blocks/catalog', 'blocks/footer/footer';
+
+@import '../libs/slick/slick', '../libs/slick/slick-theme';
+
+

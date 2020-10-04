@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: $color-bg;
+}
+
+.btn {
+    background: url("../images/svg/btn.svg") center no-repeat;
+    background-size: 284px 122px;
+    width: 284px;
+    height: 122px;
+    color: $color-white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart {
+    background: url("../images/svg/product-cart.svg") center no-repeat;
+    background-size: 60px;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+}

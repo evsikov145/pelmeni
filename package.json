@@ -1,0 +1,39 @@
+{
+  "name": "Pelmeni",
+  "version": "1.0.0",
+  "description": "Pelmeni",
+  "author": "https://github.com/evsikov145",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "gulp-babel": "^8.0.0",
+    "npm": "^5.7.1",
+    "postcss-flexbugs-fixes": "^4.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-svgmin": "^2.1.0",
+    "gulp-svgstore": "^7.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss-object-fit-images": "^1.1.2"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+}
