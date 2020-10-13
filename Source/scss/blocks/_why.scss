@@ -1,0 +1,58 @@
+.why {
+  color: white;
+  background: url("../images/why/why-bg.png") center no-repeat;
+  padding: 70px 20px 100px;
+  h2 {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  &-block {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 70px;
+  }
+  &-item {
+    max-width: 388px;
+    width: 100%;
+    padding: 0 40px;
+    text-align: center;
+    h5 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    p {
+      margin: 0 auto;
+      color: $color-white;
+      max-width: 285px;
+      line-height: 1.2;
+    }
+  }
+  &-pic {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 308px;
+      max-height: 133px;
+    }
+  }
+  &__text {
+    color: $color-white;
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    margin-bottom: 0;
+    &::after {
+      content: "";
+      background: url("../images/svg/why-arrow.svg") center no-repeat;
+      background-size: 100%;
+      width: 32px;
+      height: 20px;
+      position: absolute;
+      bottom: -60px;
+      left: calc(50% - 13px);
+    }
+  }
+}

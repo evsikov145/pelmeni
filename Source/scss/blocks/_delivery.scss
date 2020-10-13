@@ -1,0 +1,39 @@
+.delivery {
+  background: url("../images/delivery-bg.jpg") center no-repeat;
+  padding: 70px 20px 90px;
+  h2 {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 20px;
+  }
+  &-block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 9.4%;
+    margin-right: 6%;
+    img {
+      max-width: 323px;
+      width: 100%;
+      max-height: 322px;
+    }
+  }
+  &-text {
+    margin-top: 20px;
+    p {
+      line-height: 1.2;
+      max-width: 1024px;
+      font-size: 30px;
+      margin-bottom: 36px;
+      color: $color-white;
+      &:nth-last-of-type(1){
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<section class="order">
+
+    <h2>Оформление заказа</h2>
+
+    <div class="order-block">
+
+        <div class="order-list">
+
+            <div class="order-item">
+                <p class="order__name">Пельмени Говядина и Свинина</p>
+                <p class="order__price">330 р.</p>
+                <div class="order-action">
+                    <div class="order__btn">-</div>
+                    <p class="order__count">2</p>
+                    <div class="order__btn">+</div>
+                </div>
+            </div>
+
+            <div class="order-item">
+                <p class="order__name">Пельмени Говядина и Свинина</p>
+                <p class="order__price">330 р.</p>
+                <div class="order-action">
+                    <div class="order__btn">-</div>
+                    <p class="order__count">2</p>
+                    <div class="order__btn">+</div>
+                </div>
+            </div>
+
+            <div class="order-total">
+                <p>Итого:</p><span>1320 р.</span>
+            </div>
+
+        </div>
+
+        <div class="order-form">
+
+            <form action="/" method="POST">
+                <p class="order-form__title">Ваши данные</p>
+                <input type="text" name="name" placeholder="Имя">
+                <input type="text" name="phone" placeholder="Телефон">
+                <textarea name="address" placeholder="Адрес"></textarea>
+                <input name="payment" id="check1" type="radio"><label for="check1">Наличными</label>
+                <input name="payment" id="check2" type="radio"><label for="check2">Переводом на банковскую карту</label>
+                <button type="submit" class="btn">Оформить заказ</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
