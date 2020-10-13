@@ -10,6 +10,7 @@ var app = new Vue({
         },
         fixedHeader(){
             const header = document.querySelector('.header');
+
             if (window.pageYOffset > this.heightPromoSection - 200){
                 header.classList.add('header--fixed');
             }else {
@@ -19,7 +20,9 @@ var app = new Vue({
             }
         },
         initEvents(){
+
             window.addEventListener('scroll', this.fixedHeader);
+
             const aboutLink = document.querySelectorAll('.link-about');
             const menuLink = document.querySelectorAll('.link-menu');
             const deliveryLink = document.querySelectorAll('.link-delivery');
@@ -74,7 +77,6 @@ var app = new Vue({
         },
         scrollInSection(section){
             const top = this.getCoords(section);
-            console.log(top)
             window.scrollTo({
                 top: top - 120,
                 behavior: 'smooth'
