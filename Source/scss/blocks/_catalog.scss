@@ -1,6 +1,7 @@
 .catalog {
   text-align: center;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .catalog-block {
@@ -10,12 +11,17 @@
   align-items: flex-start;
 }
 
+.product-slider__item {
+  max-width: 353px;
+  margin: 0 25px;
+}
+
 .catalog-item {
   transition: .5s;
   text-align: left;
-  max-width: 353px;
   width: 100%;
-  margin: 0 25px;
+  max-width: 353px;
+  margin: 0 auto 20px;
   border-radius: 0 100px 0 0;
   cursor: pointer;
   &__pic {
@@ -34,6 +40,7 @@
     }
   }
   &__desc {
+    max-width: 353px;
     padding: 18px 27px 30px;
   }
   h6 {
@@ -69,4 +76,62 @@
 .catalog-item__price {
   font-size: 30px;
   margin-bottom: 0;
+}
+
+.arrow-next,
+.arrow-prev{
+  display: none;
+  position: absolute;
+  top: 47%;
+  width: 60px;
+  height: 60px;
+}
+
+.arrow-next {
+  right: 20px;
+}
+
+.arrow-prev {
+  transform: rotate(180deg);
+  left: 20px;
+}
+
+#arrow-next,
+#arrow-prev{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  path {
+    transition: .5s;
+    fill: $color-red;
+  }
+  &:hover {
+    path {
+      transition: .5s;
+      fill: $color-green;
+    }
+  }
+}
+
+@media all and (max-width: 1615px){
+  .product-slider__item {
+    max-width: none;
+  }
+  .arrow-next,
+  .arrow-prev{
+    display: block;
+  }
+}
+
+@media all and (max-width: 430px){
+  .arrow-next,
+  .arrow-prev{
+    bottom: 170px;
+    top: auto;
+  }
+  .catalog {
+    .btn {
+      margin-top: 60px;
+    }
+  }
 }

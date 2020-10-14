@@ -1,5 +1,6 @@
 .delivery {
-  background: url("../images/delivery-bg.jpg") center no-repeat;
+  background: url("../images/delivery-bg.jpg") right no-repeat;
+  background-size: cover;
   padding: 70px 20px 90px;
   h2 {
     text-align: center;
@@ -35,5 +36,30 @@
         margin-bottom: 0;
       }
     }
+  }
+}
+
+@media all and (max-width: 1615px){
+  .delivery-pic {
+    margin-left: 20px;
+  }
+  .delivery-text p{
+    font-size: 24px;
+  }
+}
+
+@media all and (max-width: 1000px){
+  .delivery-pic {
+    display: none;
+  }
+  .delivery-text {
+    margin-top: 0;
+  }
+}
+
+@media all and (max-width: 600px){
+  .delivery-text p{
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 }

@@ -29,9 +29,20 @@
                     <a href="/" class="nav__link link-contacts">Контакты</a>
                 </nav>
                 <a href="tel:89771677284" class="header__phone">+7 977 167 72 84</a>
-                <div class="header-cart link-order">
-                    <div class="header-cart__count">
-                        1
+                <div class="header-wrapper">
+                    <div class="header-cart link-order">
+                        <div class="header-cart__count">
+                            1
+                        </div>
+                    </div>
+                    <div
+                            @click="toggleAdaptiveMenu"
+                            class="btn-menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -47,68 +58,157 @@
 
         <h2>Топ недели</h2>
 
-        <div class="catalog-block">
-        
-            <div class="catalog-item">
-                <div class="catalog-item__pic">
-                    <img src="Content/images/products/product1.jpg" alt="product">
-                </div>
-                <div class="catalog-item__desc">
-                    <h6>Пельмени Говядина и Свинина</h6>
-                    <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук, соль, перец черный молотый.</p>
-                    <span>450 г.</span>
-                    <div class="catalog-cell">
-                        <p class="catalog-item__price">330 р.</p>
-                        <button class="cart cart--product"></button>
+        <div class="catalog-block product-slider">
+            <div class="product-slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product1.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Пельмени Говядина и Свинина</h6>
+                        <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук, соль, перец черный молотый.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">330 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         
-            <div class="catalog-item">
-                <div class="catalog-item__pic">
-                    <img src="Content/images/products/product2.jpg" alt="product">
-                </div>
-                <div class="catalog-item__desc">
-                    <h6>Манты Баранина</h6>
-                    <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
-                    <span>500 г.</span>
-                    <div class="catalog-cell">
-                        <p class="catalog-item__price">435 р.</p>
-                        <button class="cart cart--product"></button>
+        
+            <div class="product-slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product2.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Манты Баранина</h6>
+                        <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
+                        <span>500 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">435 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         
-            <div class="catalog-item">
-                <div class="catalog-item__pic">
-                    <img src="Content/images/products/product3.jpg" alt="product">
-                </div>
-                <div class="catalog-item__desc">
-                    <h6>Тефтели Говядина и Свинина</h6>
-                    <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
-                    <span>450 г.</span>
-                    <div class="catalog-cell">
-                        <p class="catalog-item__price">320 р.</p>
-                        <button class="cart cart--product"></button>
+        
+            <div class="product-slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product3.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Тефтели Говядина и Свинина</h6>
+                        <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">320 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         
-            <div class="catalog-item">
-                <div class="catalog-item__pic">
-                    <img src="Content/images/products/product4.jpg" alt="product">
-                </div>
-                <div class="catalog-item__desc">
-                    <h6>Сырники</h6>
-                    <p>Состав: творог 5%, яйцо, сахар, соль, крупа манная, мука, разрыхлитель.</p>
-                    <span>450 г.</span>
-                    <div class="catalog-cell">
-                        <p class="catalog-item__price">220 р.</p>
-                        <button class="cart cart--product"></button>
+        
+            <div class="product-slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product4.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Сырники</h6>
+                        <p>Состав: творог 5%, яйцо, сахар, соль, крупа манная, мука, разрыхлитель.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">220 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         
+        
+        </div>
+
+        <div class="arrow-next">
+            <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+	C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+	c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+</svg>
+        </div>
+
+        <div class="arrow-prev">
+            <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+	C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+	c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+                <g>
+</g>
+</svg>
         </div>
 
         <button class="btn link-menu">Полное меню</button>

@@ -16,6 +16,7 @@
     max-width: 645px;
     width: 100%;
     min-height: 670px;
+    margin-right: 40px;
     p {
       font-size: 30px;
       margin-bottom: 0;
@@ -46,6 +47,11 @@
   &__btn {
     font-size: 30px;
     cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__count {
     margin: 0 10px;
@@ -85,5 +91,71 @@
     .btn {
       margin: 45px auto 0;
     }
+  }
+}
+
+@media all and (max-width: 1400px){
+  .order-item {
+    margin-bottom: 40px;
+  }
+  .order__name {
+    margin-right: 40px;
+  }
+  .order__price {
+    margin-right: 20px;
+  }
+}
+
+@media all and (max-width: 1000px){
+  .order-block {
+    flex-wrap: wrap;
+  }
+  .order-list {
+    max-width: none;
+    margin-bottom: 40px;
+    min-height: auto;
+  }
+  .order-item {
+    justify-content: space-between;
+  }
+  .order-form {
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 600px){
+  .order-list p{
+    font-size: 24px;
+  }
+  .order-form__title {
+    font-size: 24px;
+  }
+  .order-item {
+    margin-bottom: 20px;
+  }
+  .order__name {
+    margin-right: 20px;
+  }
+  .order__price {
+    max-width: 100px;
+    margin-right: 20px;
+  }
+  .order-form .btn {
+    margin: 20px auto 0;
+  }
+  .order-total {
+    max-width: none;
+    flex-grow: 0;
+    justify-content: flex-end;
+    align-items: baseline;
+    p {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media all and (max-width: 430px){
+  .order-item {
+
   }
 }

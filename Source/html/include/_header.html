@@ -8,9 +8,20 @@
             <a href="/" class="nav__link link-contacts">Контакты</a>
         </nav>
         <a href="tel:89771677284" class="header__phone">+7 977 167 72 84</a>
-        <div class="header-cart link-order">
-            <div class="header-cart__count">
-                1
+        <div class="header-wrapper">
+            <div class="header-cart link-order">
+                <div class="header-cart__count">
+                    1
+                </div>
+            </div>
+            <div
+                    @click="toggleAdaptiveMenu"
+                    class="btn-menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>

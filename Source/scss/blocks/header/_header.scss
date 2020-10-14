@@ -82,3 +82,41 @@
     align-items: center;
   }
 }
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (max-width: 1200px){
+  .header-nav a{
+    margin: 0 12px;
+  }
+}
+
+@media all and (max-width: 1000px){
+  .header-nav {
+    display: none;
+  }
+  .header__phone {
+    display: none;
+  }
+  .btn-menu {
+    display: block;
+  }
+  .header-wrapper {
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  .header-cart {
+    margin-right: 20px;
+  }
+}
+
+@media all and (max-width: 380px){
+  .header-cart {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}

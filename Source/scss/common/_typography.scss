@@ -74,3 +74,20 @@ button {
   outline: none;
 }
 
+@media all and (max-width: 1000px){
+  h2 {
+    font-size: 100px;
+  }
+}
+
+@media all and (max-width: 800px){
+  h2 {
+    font-size: 80px;
+  }
+}
+
+@media all and (max-width: 430px){
+  h2 {
+    font-size: 60px;
+  }
+}
