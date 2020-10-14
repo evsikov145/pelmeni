@@ -89,15 +89,16 @@ window.onload = () => {
                 const currentCategory = event.target.parentElement;
                 const currentCategoryId = currentCategory.getAttribute('data-id');
                 this.currentProductsBlock = this.productsBlocks.filter(item => {
-                    if(item.hasAttribute('data-id') == currentCategoryId){
+                    if(item.getAttribute('data-id') === currentCategoryId){
                         return item;
                     }
                 })
                 if(this.currentProductsBlock.length){
                     this.sectionMenuTitle = title;
-                    this.categoriesMenu.style.height = `${this.categoriesMenu.clientHeight}px`;
+                    this.categoriesMenu.style.display = 'none';
                     this.currentProductsBlock[0].style.display = 'flex';
                     this.sectionMenu.classList.add('menu--active');
+                    this.scrollInSection(this.sectionMenu);
                 }
             },
             closeProductsBlock(){
@@ -126,7 +127,7 @@ window.onload = () => {
         }
     })
 
-// Slider
+// Slider Best Products
     const bestProductSlider = document.querySelector('.best-slider');
     const initBestSlider = (flag, section) => {
         if(flag){
