@@ -3,8 +3,7 @@
  	width:30px;
 	height:80px;
  	cursor:pointer;
-	overflow:hidden;	
- 	z-index:99999;
+	overflow:hidden;
 	position:relative;
 	margin: 0 20px;
  	}
@@ -20,7 +19,7 @@
 		left: 0;
 		margin-top:31px;
 		transform: rotate(0deg);
-		transition: .25s ease-in-out;
+		transition: .9s ease-in-out;
 		}
 		
   	.btn-menu:hover span {
@@ -40,6 +39,17 @@
 
 .btn-menu span:nth-child(4) {
   top: 18px;
+}
+
+.menu-active .btn-menu {
+	span {
+		background: $color-green;
+	}
+	&:hover {
+		span {
+			background: $color-red;
+		}
+	}
 }
  
 .menu-active .btn-menu span:nth-child(1) {

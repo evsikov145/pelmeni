@@ -82,6 +82,12 @@
 }
 
 @media all and (max-width: 600px){
+  .why {
+    padding: 40px 20px 50px;
+  }
+  .why-block {
+    margin-bottom: 0;
+  }
   .why-item {
     width: 100%;
     h5 {
@@ -91,5 +97,8 @@
   .why__text {
     font-size: 24px;
     line-height: 1.2;
+    &::after {
+      bottom: -30px;
+    }
   }
 }

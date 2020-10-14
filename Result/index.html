@@ -45,21 +45,41 @@
                         <span></span>
                     </div>
                 </div>
+                <div class="adaptive-menu">
+                    <div
+                            @click="toggleAdaptiveMenu"
+                            class="btn-menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a href="/"  class="nav__link link-about">О нас</a>
+                    <a href="/" class="nav__link link-menu">Меню</a>
+                    <a href="/"  class="nav__link link-delivery">Доставка</a>
+                    <a href="/" class="nav__link link-contacts">Контакты</a>
+                </div>
             </div>
         </header>
     
         <h3>Ручная лепка</h3>
         <h1>Мамины пельмени</h1>
         <h5>Попробовав раз, ем и сейчас!</h5>
-        <button class="btn link-menu">Хочу попробовать</button>
+        <div class="btn link-menu">
+            <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
+            </svg>
+            <div class="btn__text">Хочу попробовать</div>
+        </div>
     </section>
 
     <section class="catalog">
 
         <h2>Топ недели</h2>
 
-        <div class="catalog-block product-slider">
-            <div class="product-slider__item">
+        <div class="catalog-block best-slider slider">
+            <div class="slider__item">
                 <div class="catalog-item">
                     <div class="catalog-item__pic">
                         <img src="Content/images/products/product1.jpg" alt="product">
@@ -77,7 +97,7 @@
             </div>
         
         
-            <div class="product-slider__item">
+            <div class="slider__item">
                 <div class="catalog-item">
                     <div class="catalog-item__pic">
                         <img src="Content/images/products/product2.jpg" alt="product">
@@ -95,7 +115,7 @@
             </div>
         
         
-            <div class="product-slider__item">
+            <div class="slider__item">
                 <div class="catalog-item">
                     <div class="catalog-item__pic">
                         <img src="Content/images/products/product3.jpg" alt="product">
@@ -113,7 +133,7 @@
             </div>
         
         
-            <div class="product-slider__item">
+            <div class="slider__item">
                 <div class="catalog-item">
                     <div class="catalog-item__pic">
                         <img src="Content/images/products/product4.jpg" alt="product">
@@ -211,7 +231,12 @@
 </svg>
         </div>
 
-        <button class="btn link-menu">Полное меню</button>
+        <div class="btn link-menu">
+            <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
+            </svg>
+            <div class="btn__text">Полное меню</div>
+        </div>
 
     </section>
 
@@ -256,49 +281,161 @@
 
     <section class="menu">
 
-        <h2>Наше меню</h2>
+        <h2>{{sectionMenuTitle}}</h2>
+
+        <div
+                class="menu__close"
+                @click="closeProductsBlock"
+        >
+            <img src="Content/images/svg/close.svg" alt="">
+        </div>
+
+        <div
+                class="menu__back"
+                @click="closeProductsBlock"
+        >
+            Вернуться к категориям
+        </div>
 
         <div class="menu-block">
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="1"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu1.png" alt="">
                 <div class="menu-item__title">
                     <h4>Пельмени</h4>
                 </div>
             </div>
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="2"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu2.png" alt="">
                 <div class="menu-item__title">
                     <h4>Вареники</h4>
                 </div>
             </div>
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="3"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu3.png" alt="">
                 <div class="menu-item__title">
                     <h4>Котлеты</h4>
                 </div>
             </div>
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="4"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu4.png" alt="">
                 <div class="menu-item__title">
                     <h4>Манты</h4>
                 </div>
             </div>
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="5"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu5.png" alt="">
                 <div class="menu-item__title">
                     <h4>Фаршировка</h4>
                 </div>
             </div>
         
-            <div class="menu-item">
+            <div
+                    class="menu-item"
+                    data-id="6"
+                    @click="openProducts"
+            >
                 <img src="Content/images/menu/menu6.png" alt="">
                 <div class="menu-item__title">
                     <h4>Сырники</h4>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="catalog-block product-slider slider" data-id="1">
+            <div class="slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product1.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Пельмени Говядина и Свинина</h6>
+                        <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук, соль, перец черный молотый.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">330 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product2.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Манты Баранина</h6>
+                        <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
+                        <span>500 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">435 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product3.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Тефтели Говядина и Свинина</h6>
+                        <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">320 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="slider__item">
+                <div class="catalog-item">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/product4.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Сырники</h6>
+                        <p>Состав: творог 5%, яйцо, сахар, соль, крупа манная, мука, разрыхлитель.</p>
+                        <span>450 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">220 р.</p>
+                            <button class="cart cart--product"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         
@@ -370,7 +507,12 @@
                     <textarea name="address" placeholder="Адрес"></textarea>
                     <input name="payment" id="check1" type="radio"><label for="check1">Наличными</label>
                     <input name="payment" id="check2" type="radio"><label for="check2">Переводом на банковскую карту</label>
-                    <button type="submit" class="btn">Оформить заказ</button>
+                    <div class="btn">
+                        <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
+                        </svg>
+                        <div class="btn__text">Оформить заказ</div>
+                    </div>
                 </form>
     
             </div>

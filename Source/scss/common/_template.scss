@@ -10,20 +10,30 @@ body {
 }
 
 .btn {
-    background: url("../images/svg/btn.svg") center no-repeat;
-    background-size: 284px 122px;
-    width: 284px;
-    height: 122px;
-    color: $color-white;
-    font-size: 24px;
-    border: none;
+    width: 285px;
+    height: 123px;
+    position: relative;
     cursor: pointer;
-    transition: .5s;
+    svg {
+        path {
+            transition: .5s;
+            fill: $color-red;
+        }
+    }
+    &__text {
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        font-size: 24px;
+        color: white;
+    }
     &:hover {
-        width: 284px;
-        height: 122px;
-        transition: .5s;
-        background: url("../images/svg/btn-hover.svg") center no-repeat;
+        svg {
+            path {
+                transition: .5s;
+                fill: $color-green;
+            }
+        }
     }
 }
 
@@ -113,10 +123,25 @@ input[type="radio"]:checked + label:after{
     opacity: 1;
 }
 
-@media all and (max-width: 380px){
+@media all and (max-width: 600px){
     .btn {
-        background-size: 100%;
-        width: 250px;
-        font-size: 22px;
+        width: 230px;
+        margin: 0 auto;
+        svg {
+            width: 230px;
+        }
+        &__text {
+            font-size: 20px;
+            left: 34px;
+        }
+    }
+}
+
+@media all and (max-width: 430px){
+    input[type=text]{
+        padding: 0 20px;
+    }
+    textarea {
+        padding: 20px;
     }
 }
