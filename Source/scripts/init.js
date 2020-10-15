@@ -96,7 +96,7 @@ window.onload = () => {
                 if(this.currentProductsBlock.length){
                     this.sectionMenuTitle = title;
                     this.categoriesMenu.style.display = 'none';
-                    this.currentProductsBlock[0].style.display = 'flex';
+                    this.currentProductsBlock[0].style.height = 'auto';
                     this.sectionMenu.classList.add('menu--active');
                     this.scrollInSection(this.sectionMenu);
                 }
@@ -104,7 +104,7 @@ window.onload = () => {
             closeProductsBlock(){
                 this.sectionMenuTitle = 'Наше меню';
                 this.categoriesMenu.style.display = 'flex';
-                this.currentProductsBlock[0].style.display = 'none';
+                this.currentProductsBlock[0].style.height = '0';
                 this.sectionMenu.classList.remove('menu--active');
             }
         },
@@ -122,63 +122,135 @@ window.onload = () => {
 
             this.categoriesMenu = document.querySelector('.menu-block');
             this.sectionMenu = document.querySelector('.menu');
-            this.productsBlocks = document.querySelectorAll('.product-slider');
+            this.productsBlocks = this.sectionMenu.querySelectorAll('.catalog-block');
             this.productsBlocks = [...this.productsBlocks];
         }
     })
 
-// Slider Best Products
-    const bestProductSlider = document.querySelector('.best-slider');
-    const initBestSlider = (flag, section) => {
-        if(flag){
-            const parent = section.parentElement;
-            const arrowNext = parent.querySelector('.arrow-next');
-            const arrowPrev = parent.querySelector('.arrow-prev');
-            $(section).slick({
-                dots: true,
-                infinite: true,
-                arrows: true,
-                nextArrow: $(arrowNext),
-                prevArrow: $(arrowPrev),
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 2
+    try {
+
+        // Slider Best Products
+        const bestProductSlider = document.querySelector('.best-slider');
+        const initBestSlider = (flag, section) => {
+            if(flag){
+                const parent = section.parentElement;
+                const arrowNext = parent.querySelector('.arrow-next');
+                const arrowPrev = parent.querySelector('.arrow-prev');
+                $(section).slick({
+                    dots: true,
+                    infinite: true,
+                    arrows: true,
+                    nextArrow: $(arrowNext),
+                    prevArrow: $(arrowPrev),
+                    speed: 300,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 1
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 800,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            })
-        }else {
-            $(section).slick('unslick')
+                    ]
+                })
+            }else {
+                $(section).slick('unslick')
+            }
+
         }
 
-    }
-
-    if(window.innerWidth < 1615){
-        bestProductSlider && initBestSlider(true ,bestProductSlider)
-    }
-
-    window.addEventListener('resize', () => {
         if(window.innerWidth < 1615){
-            if(!bestProductSlider.classList.contains('slick-initialized')){
-                bestProductSlider && initBestSlider(true, bestProductSlider)
+            bestProductSlider && initBestSlider(true ,bestProductSlider)
+        }
+
+        window.addEventListener('resize', () => {
+            if(window.innerWidth < 1615){
+                if(!bestProductSlider.classList.contains('slick-initialized')){
+                    bestProductSlider && initBestSlider(true, bestProductSlider)
+                }
+            }else {
+                if(bestProductSlider.classList.contains('slick-initialized')){
+                    bestProductSlider && initBestSlider(false, bestProductSlider)
+                }
             }
-        }else {
-            if(bestProductSlider.classList.contains('slick-initialized')){
-                bestProductSlider && initBestSlider(false, bestProductSlider)
+        })
+
+
+    }catch (e){
+        console.log(e + 'best slider')
+    }
+
+
+    try {
+
+        //Slider Products
+
+        const productsSliders = document.querySelectorAll('.product-slider');
+
+        const initProductsSlider = (flag, section) => {
+            if(flag){
+                const parent = section.parentElement;
+                //const arrowNext = parent.querySelector('.arrow-next');
+                //const arrowPrev = parent.querySelector('.arrow-prev');
+                $(section).slick({
+                    dots: true,
+                    infinite: false,
+                    arrows: false,
+                    speed: 300,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                })
+            }else {
+                $(section).slick('unslick')
             }
         }
-    })
+
+        if(window.innerWidth < 1615){
+            productsSliders && initProductsSlider(true , productsSliders)
+        }
+
+        window.addEventListener('resize', () => {
+            if(window.innerWidth < 1615){
+                productsSliders.forEach(slider => {
+                    if(!slider.classList.contains('slick-initialized')){
+                        initProductsSlider(true, slider)
+                    }
+                })
+            }else {
+                productsSliders.forEach(slider => {
+                    if(slider.classList.contains('slick-initialized')){
+                        initProductsSlider(false, slider)
+                    }
+                })
+            }
+        })
+
+    }catch (e) {
+        console.log(e + 'products sliders')
+    }
+
 
 }
+
 
