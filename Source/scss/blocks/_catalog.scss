@@ -88,10 +88,34 @@
 .arrow-prev{
   display: none;
   position: absolute;
+  z-index: 10;
   top: 47%;
   width: 60px;
   height: 60px;
 }
+
+.arrow-next.slick-disabled,
+.arrow-prev.slick-disabled{
+  &:hover {
+    #arrow-next,
+    #arrow-prev{
+      &:hover {
+        path {
+          transition: .5s;
+          fill: $color-red;
+        }
+      }
+    }
+  }
+}
+
+.catalog-block--active {
+  .arrow-next.slick-hidden,
+  .arrow-prev.slick-hidden{
+    display: none!important;
+  }
+}
+
 
 .arrow-next {
   right: 20px;

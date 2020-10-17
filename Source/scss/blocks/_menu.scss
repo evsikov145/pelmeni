@@ -79,6 +79,11 @@
       color: $color-green;
     }
   }
+  .arrow-next,
+  .arrow-prev {
+    display: none!important;
+    transition: .6s;
+  }
 }
 
 .menu--active {
@@ -86,6 +91,15 @@
   .menu__close {
     transition: .6s;
     opacity: 1;
+  }
+}
+
+.catalog-block--active {
+  .arrow-next,
+  .arrow-prev {
+    display: block!important;
+    transition: .6s;
+
   }
 }
 

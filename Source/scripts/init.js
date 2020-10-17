@@ -8,7 +8,8 @@ window.onload = () => {
             sectionMenu: [],
             productsBlocks: [],
             currentProductsBlock: [],
-            sectionMenuTitle: 'Наше меню'
+            sectionMenuTitle: 'Наше меню',
+            numberInCart: 0
         },
         methods: {
             getHeightPromoSection(){
@@ -77,7 +78,7 @@ window.onload = () => {
             scrollInSection(section){
                 const top = this.getCoords(section);
                 window.scrollTo({
-                    top: top - 120, // height fixed header
+                    top: top - 100, // height fixed header
                     behavior: 'smooth'
                 });
             },
@@ -97,6 +98,9 @@ window.onload = () => {
                     this.sectionMenuTitle = title;
                     this.categoriesMenu.style.display = 'none';
                     this.currentProductsBlock[0].style.height = 'auto';
+                    if(window.innerWidth < 1615){
+                        this.currentProductsBlock[0].classList.add('catalog-block--active')
+                    }
                     this.sectionMenu.classList.add('menu--active');
                     this.scrollInSection(this.sectionMenu);
                 }
@@ -105,7 +109,27 @@ window.onload = () => {
                 this.sectionMenuTitle = 'Наше меню';
                 this.categoriesMenu.style.display = 'flex';
                 this.currentProductsBlock[0].style.height = '0';
+
+                if(this.currentProductsBlock[0].classList.contains('catalog-block--active')){
+                    this.currentProductsBlock[0].classList.remove('catalog-block--active')
+                }
+
                 this.sectionMenu.classList.remove('menu--active');
+            },
+            addProductToCart(event){
+                this.numberInCart++;
+                const item = this.getCatalogItem(event.target);
+                const id = item.getAttribute('data-id')
+                console.log(id)
+
+            },
+            getCatalogItem(target){
+                if(!target.hasAttribute('data-id')){
+                    target = target.parentElement;
+                    return this.getCatalogItem(target);
+                }else {
+                    return target;
+                }
             }
         },
         mounted(){
@@ -138,7 +162,7 @@ window.onload = () => {
                 const arrowPrev = parent.querySelector('.arrow-prev');
                 $(section).slick({
                     dots: true,
-                    infinite: true,
+                    infinite: false,
                     arrows: true,
                     nextArrow: $(arrowNext),
                     prevArrow: $(arrowPrev),
@@ -196,38 +220,43 @@ window.onload = () => {
 
         const initProductsSlider = (flag, section) => {
             if(flag){
-                const parent = section.parentElement;
-                //const arrowNext = parent.querySelector('.arrow-next');
-                //const arrowPrev = parent.querySelector('.arrow-prev');
-                $(section).slick({
-                    dots: true,
-                    infinite: false,
-                    arrows: false,
-                    speed: 300,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    responsive: [
-                        {
-                            breakpoint: 1200,
-                            settings: {
-                                slidesToShow: 2
+                    const parent = section.parentElement;
+                    const arrowNext = parent.querySelector('.arrow-next');
+                    const arrowPrev = parent.querySelector('.arrow-prev');
+                    $(section).slick({
+                        dots: true,
+                        infinite: false,
+                        arrows: true,
+                        nextArrow: $(arrowNext),
+                        prevArrow: $(arrowPrev),
+                        speed: 300,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        responsive: [
+                            {
+                                breakpoint: 1200,
+                                settings: {
+                                    slidesToShow: 2
+                                }
+                            },
+                            {
+                                breakpoint: 800,
+                                settings: {
+                                    slidesToShow: 1
+                                }
                             }
-                        },
-                        {
-                            breakpoint: 800,
-                            settings: {
-                                slidesToShow: 1
-                            }
-                        }
-                    ]
-                })
+                        ]
+                    })
+
             }else {
                 $(section).slick('unslick')
             }
         }
 
         if(window.innerWidth < 1615){
-            productsSliders && initProductsSlider(true , productsSliders)
+            productsSliders && productsSliders.forEach(slider => {
+                initProductsSlider(true , slider)
+            })
         }
 
         window.addEventListener('resize', () => {
