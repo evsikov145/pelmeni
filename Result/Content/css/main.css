@@ -185,6 +185,19 @@ body {
   height: 60px;
   position: relative;
   cursor: pointer; }
+  .cart .heart {
+    display: none;
+    position: absolute;
+    top: 21px;
+    left: 28px;
+    background: url("../images/svg/heart.svg") center no-repeat;
+    background-size: 18px;
+    width: 18px;
+    height: 18px;
+    margin-bottom: 0; }
+
+.catalog-item--add .heart {
+  display: block; }
 
 input[type='text'] {
   border: none;
@@ -207,6 +220,9 @@ textarea {
   resize: none;
   border: none;
   font-family: "Balsamiqsans", Arial, Helvetica, sans-serif; }
+
+.textarea-hidden {
+  display: none; }
 
 label {
   font-size: 24px;
@@ -254,6 +270,20 @@ input[type="radio"]:not(:checked) + label:after {
 
 input[type="radio"]:checked + label:after {
   opacity: 1; }
+
+.error {
+  color: #EF0031;
+  font-size: 20px;
+  margin-left: 52px; }
+
+.form--error_name input[name='name'] {
+  border: 1px solid #EF0031; }
+
+.form--error_phone input[name='phone'] {
+  border: 1px solid #EF0031; }
+
+.form--error_address textarea[name='address'] {
+  border: 1px solid #EF0031; }
 
 @media all and (max-width: 600px) {
   .btn {

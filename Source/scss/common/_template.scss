@@ -44,6 +44,23 @@ body {
     height: 60px;
     position: relative;
     cursor: pointer;
+    .heart {
+        display: none;
+        position: absolute;
+        top: 21px;
+        left: 28px;
+        background: url("../images/svg/heart.svg") center no-repeat;
+        background-size: 18px;
+        width: 18px;
+        height: 18px;
+        margin-bottom: 0;
+    }
+}
+
+.catalog-item--add {
+    .heart {
+        display: block;
+    }
 }
 
 input[type='text'] {
@@ -67,6 +84,9 @@ textarea {
     resize: none;
     border: none;
     font-family: $font-balsamiq;
+}
+.textarea-hidden {
+    display: none;
 }
 label {
     font-size: 24px;
@@ -121,6 +141,30 @@ input[type="radio"]:not(:checked) + label:after{
 
 input[type="radio"]:checked + label:after{
     opacity: 1;
+}
+
+.error {
+    color: $color-red;
+    font-size: 20px;
+    margin-left: 52px;
+}
+
+.form {
+    &--error_name {
+        input[name='name'] {
+            border: 1px solid $color-red;
+        }
+    }
+    &--error_phone {
+        input[name='phone'] {
+            border: 1px solid $color-red;
+        }
+    }
+    &--error_address {
+        textarea[name='address'] {
+            border: 1px solid $color-red;
+        }
+    }
 }
 
 @media all and (max-width: 600px){

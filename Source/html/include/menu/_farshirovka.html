@@ -80,7 +80,7 @@
 
     <div class="product-slider slider">
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="16" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/farsh/farsh1.jpg" alt="product">
                 </div>
@@ -91,7 +91,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">270 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -99,7 +101,7 @@
 
 
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="17" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/farsh/farsh2.jpg" alt="product">
                 </div>
@@ -110,7 +112,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">315 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>

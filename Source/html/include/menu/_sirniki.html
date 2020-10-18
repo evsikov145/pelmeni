@@ -80,7 +80,7 @@
 
     <div class="product-slider slider">
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="18" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/sirniki/sirniki1.jpg" alt="product">
                 </div>
@@ -90,7 +90,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">220 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>

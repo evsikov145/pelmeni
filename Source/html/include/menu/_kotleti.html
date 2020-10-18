@@ -80,7 +80,7 @@
 
     <div class="product-slider slider">
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="9" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/kotleti/kotleti1.jpg" alt="product">
                 </div>
@@ -90,7 +90,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">335 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -98,7 +100,7 @@
 
 
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="10" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/kotleti/kotleti2.jpg" alt="product">
                 </div>
@@ -108,7 +110,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">320 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -116,7 +120,7 @@
 
 
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="11" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/kotleti/kotleti3.jpg" alt="product">
                 </div>
@@ -127,7 +131,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">265 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>

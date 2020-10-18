@@ -6,42 +6,40 @@
 
         <div class="order-list">
 
-            <div class="order-item">
-                <p class="order__name">Пельмени Говядина и Свинина</p>
-                <p class="order__price">330 р.</p>
+            <div class="order-item" v-for="item in currentOrder" :key="item.id">
+                <p class="order__name">{{item.title}}</p>
+                <p class="order__price">{{item.price}} р.</p>
                 <div class="order-action">
-                    <div class="order__btn">-</div>
-                    <p class="order__count">2</p>
-                    <div class="order__btn">+</div>
+                    <div class="order__btn" @click="reduceNumberProductInOrder(item.id)">-</div>
+                    <p class="order__count">{{item.number}}</p>
+                    <div class="order__btn" @click="increaseNumberProductInOrder(item.id)">+</div>
                 </div>
             </div>
 
-            <div class="order-item">
-                <p class="order__name">Пельмени Говядина и Свинина</p>
-                <p class="order__price">330 р.</p>
-                <div class="order-action">
-                    <div class="order__btn">-</div>
-                    <p class="order__count">2</p>
-                    <div class="order__btn">+</div>
-                </div>
-            </div>
-
-            <div class="order-total">
-                <p>Итого:</p><span>1320 р.</span>
+            <div class="order-total" v-if="currentOrder.length">
+                <p>Итого:</p><span>{{amountOrder}} р.</span>
             </div>
 
         </div>
 
         <div class="order-form">
 
-            <form action="/" method="POST">
-                <p class="order-form__title">Ваши данные</p>
-                <input type="text" name="name" placeholder="Имя">
-                <input type="text" name="phone" placeholder="Телефон">
-                <textarea name="address" placeholder="Адрес"></textarea>
-                <input name="payment" id="check1" type="radio"><label for="check1">Наличными</label>
+            <form class="form" action="send.php" method="POST">
+                <p v-if="!errors" class="order-form__title">Ваши данные</p>
+                <p v-else class="order-form__title">
+                    Пожалуйста исправьте указанные ошибки:
+                </p>
+                <p class="error" v-if="orderError">В заказе отсутствует товар.</p>
+                <p class="error" v-if="nameError">Укажите Ваше имя.</p>
+                <input v-model.trim="name" type="text" name="name" placeholder="Имя">
+                <p class="error" v-if="phoneError">Укажите Ваш телефон.</p>
+                <input v-model.trim="phone" type="text" name="phone" placeholder="Телефон">
+                <p class="error" v-if="addressError">Укажите Ваш адрес.</p>
+                <textarea v-model.trim="address" name="address" placeholder="Адрес"></textarea>
+                <textarea v-model="message" class="textarea-hidden" name="message" placeholder="Заказ"></textarea>
+                <input name="payment" id="check1" type="radio" checked><label for="check1">Наличными</label>
                 <input name="payment" id="check2" type="radio"><label for="check2">Переводом на банковскую карту</label>
-                <div class="btn">
+                <div class="btn" @click="submitForm">
                     <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
                     </svg>

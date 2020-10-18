@@ -80,7 +80,7 @@
 
     <div class="product-slider slider">
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="1" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/pelmeni/pelmeni1.jpg" alt="product">
                 </div>
@@ -91,15 +91,17 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">330 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="slider__item">
-            <div class="catalog-item">
+        <div  class="slider__item">
+            <div data-id="2" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/pelmeni/pelmeni2.jpg" alt="product">
                 </div>
@@ -109,15 +111,17 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">350 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="slider__item">
-            <div class="catalog-item">
+        <div  class="slider__item">
+            <div data-id="3" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/pelmeni/pelmeni3.jpg" alt="product">
                 </div>
@@ -128,7 +132,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">275 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -136,7 +142,7 @@
 
 
         <div class="slider__item">
-            <div class="catalog-item">
+            <div data-id="4" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/pelmeni/pelmeni4.jpg" alt="product">
                 </div>
@@ -147,7 +153,9 @@
                     <span>450 г.</span>
                     <div class="catalog-cell">
                         <p class="catalog-item__price">300 р.</p>
-                        <button class="cart cart--product"></button>
+                        <button class="cart cart--product">
+                            <span class="heart"></span>
+                        </button>
                     </div>
                 </div>
             </div>

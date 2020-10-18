@@ -18,7 +18,20 @@ window.onload = function () {
       productsBlocks: [],
       currentProductsBlock: [],
       sectionMenuTitle: 'Наше меню',
-      numberInCart: 0
+      numberInCart: 0,
+      currentOrder: [],
+      listProduct: [],
+      amountOrder: 0,
+      catalogItems: [],
+      name: '',
+      phone: '',
+      address: '',
+      message: '',
+      errors: false,
+      nameError: false,
+      phoneError: false,
+      addressError: false,
+      orderError: false
     },
     methods: {
       getHeightPromoSection: function getHeightPromoSection() {
@@ -133,7 +146,39 @@ window.onload = function () {
         this.numberInCart++;
         var item = this.getCatalogItem(event.target);
         var id = item.getAttribute('data-id');
-        console.log(id);
+        var repeat = this.currentOrder.find(function (item) {
+          return item.id === id;
+        });
+
+        if (typeof repeat !== 'undefined') {
+          item.classList.add('catalog-item--add');
+          repeat.number++;
+          repeat.price = this.checkPrice(id, repeat.number);
+        } else {
+          item.classList.add('catalog-item--add');
+          var title = item.querySelector('h6').textContent;
+          var price = item.querySelector('.catalog-item__price').textContent;
+          price = Number(price.split(' ')[0]);
+          var number = 1;
+          var orderItem = {
+            id: id,
+            title: title,
+            price: price,
+            number: number
+          };
+          this.currentOrder.push(orderItem);
+          var copyItem = JSON.parse(JSON.stringify(orderItem));
+          this.listProduct.push(copyItem);
+          this.catalogItems.forEach(function (item) {
+            var idItem = item.getAttribute('data-id');
+
+            if (idItem === id) {
+              item.classList.add('catalog-item--add');
+            }
+          });
+        }
+
+        this.ordering();
       },
       getCatalogItem: function getCatalogItem(target) {
         if (!target.hasAttribute('data-id')) {
@@ -141,6 +186,94 @@ window.onload = function () {
           return this.getCatalogItem(target);
         } else {
           return target;
+        }
+      },
+      ordering: function ordering() {
+        this.amountOrder = this.currentOrder.reduce(function (sum, item) {
+          return sum + item.price;
+        }, 0);
+      },
+      increaseNumberProductInOrder: function increaseNumberProductInOrder(id) {
+        var product = this.currentOrder.find(function (item) {
+          return item.id === id;
+        });
+        product.number++;
+        this.numberInCart++;
+        product.price = this.checkPrice(id, product.number);
+        this.ordering();
+      },
+      reduceNumberProductInOrder: function reduceNumberProductInOrder(id) {
+        var product = this.currentOrder.find(function (item) {
+          return item.id === id;
+        });
+        product.number--;
+        this.numberInCart--;
+        product.price = this.checkPrice(id, product.number);
+
+        if (product.number === 0) {
+          this.catalogItems.forEach(function (item) {
+            var id = item.getAttribute('data-id');
+
+            if (id === product.id) {
+              item.classList.remove('catalog-item--add');
+            }
+          });
+          this.currentOrder = this.currentOrder.filter(function (item) {
+            return item.id !== id;
+          });
+        }
+
+        this.ordering();
+      },
+      checkPrice: function checkPrice(id, number) {
+        var product = this.listProduct.find(function (item) {
+          return item.id === id;
+        });
+        return product.price * number;
+      },
+      submitForm: function submitForm(event) {
+        var form = this.searchForm(event.target);
+        form.className = 'form';
+        this.nameError = false;
+        this.phoneError = false;
+        this.addressError = false;
+        this.orderError = false;
+        this.errors = false;
+
+        if (!this.currentOrder.length) {
+          this.orderError = true;
+          this.errors = true;
+        }
+
+        if (this.name === '') {
+          this.nameError = true;
+          this.errors = true;
+          form.classList.add('form--error_name');
+        }
+
+        if (this.address === '') {
+          this.addressError = true;
+          this.errors = true;
+          form.classList.add('form--error_address');
+        }
+
+        if (this.phone === '') {
+          this.phoneError = true;
+          this.errors = true;
+          form.classList.add('form--error_phone');
+        }
+
+        if (!this.errors) {
+          this.message = JSON.stringify(this.currentOrder);
+          form.submit();
+        }
+      },
+      searchForm: function searchForm(target) {
+        if (target.hasAttribute('action')) {
+          return target;
+        } else {
+          target = target.parentElement;
+          return this.searchForm(target);
         }
       }
     },
@@ -157,6 +290,7 @@ window.onload = function () {
       this.sectionMenu = document.querySelector('.menu');
       this.productsBlocks = this.sectionMenu.querySelectorAll('.catalog-block');
       this.productsBlocks = _toConsumableArray(this.productsBlocks);
+      this.catalogItems = document.querySelectorAll('.catalog-item');
     }
   });
 
