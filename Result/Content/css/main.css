@@ -221,28 +221,25 @@ textarea {
   border: none;
   font-family: "Balsamiqsans", Arial, Helvetica, sans-serif; }
 
-.textarea-hidden {
-  display: none; }
-
 label {
   font-size: 24px;
   margin-bottom: 17px; }
 
-input[type="radio"]:checked,
-input[type="radio"]:not(:checked) {
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked) {
   position: absolute;
   left: -9999px; }
 
-input[type="radio"]:checked + label,
-input[type="radio"]:not(:checked) + label {
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label {
   display: inline-block;
   position: relative;
   padding-left: 52px;
   line-height: 1;
   cursor: pointer; }
 
-input[type="radio"]:checked + label:before,
-input[type="radio"]:not(:checked) + label:before {
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -253,8 +250,8 @@ input[type="radio"]:not(:checked) + label:before {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 100%; }
 
-input[type="radio"]:checked + label:after,
-input[type="radio"]:not(:checked) + label:after {
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after {
   content: "";
   position: absolute;
   transition: all 0.2s ease;
@@ -265,16 +262,22 @@ input[type="radio"]:not(:checked) + label:after {
   border-radius: 100%;
   background-color: #494949; }
 
-input[type="radio"]:not(:checked) + label:after {
+input[type="checkbox"]:not(:checked) + label:after {
   opacity: 0; }
 
-input[type="radio"]:checked + label:after {
+input[type="checkbox"]:checked + label:after {
   opacity: 1; }
 
 .error {
   color: #EF0031;
   font-size: 20px;
   margin-left: 52px; }
+
+.textarea-hidden {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  height: 0; }
 
 .form--error_name input[name='name'] {
   border: 1px solid #EF0031; }

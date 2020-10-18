@@ -27,11 +27,14 @@ window.onload = function () {
       phone: '',
       address: '',
       message: '',
+      sumOrder: '',
       errors: false,
       nameError: false,
       phoneError: false,
       addressError: false,
-      orderError: false
+      orderError: false,
+      check1: true,
+      check2: false
     },
     methods: {
       getHeightPromoSection: function getHeightPromoSection() {
@@ -264,8 +267,33 @@ window.onload = function () {
         }
 
         if (!this.errors) {
+          this.currentOrder.forEach(function (item) {
+            delete item['id'];
+          });
           this.message = JSON.stringify(this.currentOrder);
-          form.submit();
+          this.sumOrder = String(this.amountOrder);
+          var formData = new FormData(form);
+          formData.append('message', JSON.stringify(this.currentOrder));
+          formData.append('sum', String(this.amountOrder));
+
+          if (this.check1) {
+            formData.append('payment', 'Наличными');
+          } else {
+            formData.append('payment', 'Переводом на банковскую карту');
+          }
+
+          fetch('/send.php', {
+            method: 'POST',
+            body: formData
+          }).then(function (res) {
+            console.log(res);
+
+            if (res.ok) {
+              location.assign("/thanks.html");
+            } else {
+              console.log('Заказ не отправился!');
+            }
+          });
         }
       },
       searchForm: function searchForm(target) {
@@ -275,6 +303,10 @@ window.onload = function () {
           target = target.parentElement;
           return this.searchForm(target);
         }
+      },
+      checkCheckbox: function checkCheckbox() {
+        this.check1 = !this.check1;
+        this.check2 = !this.check2;
       }
     },
     mounted: function mounted() {

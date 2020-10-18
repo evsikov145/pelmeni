@@ -18,11 +18,14 @@ window.onload = () => {
             phone: '',
             address: '',
             message: '',
+            sumOrder: '',
             errors: false,
             nameError: false,
             phoneError: false,
             addressError: false,
             orderError: false,
+            check1: true,
+            check2: false
         },
         methods: {
             getHeightPromoSection(){
@@ -229,9 +232,34 @@ window.onload = () => {
 
                 if(!this.errors){
 
-                    this.message = JSON.stringify(this.currentOrder);
+                    this.currentOrder.forEach(item => {
+                        delete item['id']
+                    })
 
-                    form.submit();
+                    this.message = JSON.stringify(this.currentOrder);
+                    this.sumOrder = String(this.amountOrder);
+
+                    let formData = new FormData(form);
+                    formData.append('message', JSON.stringify(this.currentOrder));
+                    formData.append('sum', String(this.amountOrder));
+                    if(this.check1){
+                        formData.append('payment', 'Наличными');
+                    }else {
+                        formData.append('payment', 'Переводом на банковскую карту');
+                    }
+
+                    fetch('/send.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then((res) => {
+                        console.log(res)
+                        if(res.ok){
+                            location.assign("/thanks.html");
+                        }else {
+                            console.log('Заказ не отправился!');
+                        }
+                    })
                 }
             },
             searchForm(target){
@@ -241,6 +269,10 @@ window.onload = () => {
                     target = target.parentElement;
                     return this.searchForm(target);
                 }
+            },
+            checkCheckbox(){
+                this.check1 = !this.check1;
+                this.check2 = !this.check2;
             }
         },
         mounted(){
@@ -261,7 +293,7 @@ window.onload = () => {
             this.productsBlocks = [...this.productsBlocks];
 
             this.catalogItems = document.querySelectorAll('.catalog-item');
-        }
+        },
     })
 
     try {

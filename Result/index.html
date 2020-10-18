@@ -1300,9 +1300,8 @@
                     <input v-model.trim="phone" type="text" name="phone" placeholder="Телефон">
                     <p class="error" v-if="addressError">Укажите Ваш адрес.</p>
                     <textarea v-model.trim="address" name="address" placeholder="Адрес"></textarea>
-                    <textarea v-model="message" class="textarea-hidden" name="message" placeholder="Заказ"></textarea>
-                    <input name="payment" id="check1" type="radio" checked><label for="check1">Наличными</label>
-                    <input name="payment" id="check2" type="radio"><label for="check2">Переводом на банковскую карту</label>
+                    <input @click="checkCheckbox" id="check1" type="checkbox" v-model="check1"><label for="check1">Наличными</label>
+                    <input @click="checkCheckbox" id="check2" type="checkbox" v-model="check2"><label for="check2">Переводом на банковскую карту</label>
                     <div class="btn" @click="submitForm">
                         <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
@@ -1339,7 +1338,7 @@
             <p>Сотрудничаем с кафе и ресторанами, предоставляем оптовые цены. Звоните по телефону или пишите в месенджер WhatsApp</p>
         </div>
     </div>
-    <a class="footer__link" href="#">Политика конфиденциальности</a>
+    <a class="footer__link" href="/politics.html">Политика конфиденциальности</a>
 </footer>
 
 <script src="Content/libs/jquery.min.js"></script>
