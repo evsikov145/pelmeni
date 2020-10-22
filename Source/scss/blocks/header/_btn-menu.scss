@@ -77,4 +77,14 @@
   width: 0%;
   left: 50%;
 }
+
+@media all and (max-width: 430px){
+	.btn-menu {
+		height: 60px;
+		span {
+			margin-top: 21px;
+		}
+	}
+}
+
 		

@@ -59,10 +59,19 @@
   }
 }
 
+@media all and (max-width: 1920px){
+  .footer-block {
+    margin-bottom: 30px;
+  }
+  .footer {
+    padding: 40px 20px 40px;
+    min-height: 322px;
+  }
+}
+
 @media all and (max-width: 1200px){
   .footer-block {
     flex-wrap: wrap;
-    margin-bottom: 35px;
     .logo {
       margin: 0 auto 20px;
     }

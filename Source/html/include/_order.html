@@ -4,20 +4,20 @@
 
     <div class="order-block">
 
-        <div class="order-list">
+        <div v-cloak class="order-list">
 
             <div class="order-item" v-for="item in currentOrder" :key="item.id">
-                <p class="order__name">{{item.title}}</p>
-                <p class="order__price">{{item.price}} р.</p>
-                <div class="order-action">
+                <p class="order__name" v-cloak>{{item.title}}</p>
+                <p class="order__price" v-cloak>{{item.price}} р.</p>
+                <div v-cloak class="order-action">
                     <div class="order__btn" @click="reduceNumberProductInOrder(item.id)">-</div>
-                    <p class="order__count">{{item.number}}</p>
+                    <p class="order__count" v-cloak>{{item.number}}</p>
                     <div class="order__btn" @click="increaseNumberProductInOrder(item.id)">+</div>
                 </div>
             </div>
 
             <div class="order-total" v-if="currentOrder.length">
-                <p>Итого:</p><span>{{amountOrder}} р.</span>
+                <p>Итого:</p><span v-cloak>{{amountOrder}} р.</span>
             </div>
 
         </div>
@@ -25,16 +25,16 @@
         <div class="order-form">
 
             <form class="form" action="send.php" method="POST">
-                <p v-if="!errors" class="order-form__title">Ваши данные</p>
-                <p v-else class="order-form__title">
+                <p v-cloak v-if="!errors" class="order-form__title">Ваши данные</p>
+                <p v-cloak v-else class="order-form__title">
                     Пожалуйста исправьте указанные ошибки:
                 </p>
-                <p class="error" v-if="orderError">В заказе отсутствует товар.</p>
-                <p class="error" v-if="nameError">Укажите Ваше имя.</p>
+                <p class="error" v-cloak v-if="orderError">В заказе отсутствует товар.</p>
+                <p class="error" v-cloak v-if="nameError">Укажите Ваше имя.</p>
                 <input v-model.trim="name" type="text" name="name" placeholder="Имя">
-                <p class="error" v-if="phoneError">Укажите Ваш телефон.</p>
+                <p class="error" v-cloak v-if="phoneError">Укажите Ваш телефон.</p>
                 <input v-model.trim="phone" type="text" name="phone" placeholder="Телефон">
-                <p class="error" v-if="addressError">Укажите Ваш адрес.</p>
+                <p class="error" v-cloak v-if="addressError">Укажите Ваш адрес.</p>
                 <textarea v-model.trim="address" name="address" placeholder="Адрес"></textarea>
                 <input @click="checkCheckbox" id="check1" type="checkbox" v-model="check1"><label for="check1">Наличными</label>
                 <input @click="checkCheckbox" id="check2" type="checkbox" v-model="check2"><label for="check2">Переводом на банковскую карту</label>

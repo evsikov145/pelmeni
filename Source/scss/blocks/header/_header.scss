@@ -125,6 +125,18 @@
   }
 }
 
+@media all and (max-width: 1920px){
+  .header {
+    padding: 0 40px;
+  }
+  .header--fixed {
+    padding: 10px 40px;
+  }
+  .header-block {
+    max-width: 1350px;
+  }
+}
+
 @media all and (max-width: 1200px){
   .header-nav a{
     margin: 0 12px;
@@ -147,6 +159,16 @@
   }
   .header-cart {
     margin-right: 20px;
+  }
+}
+
+@media all and (max-width: 430px){
+  .header--fixed .logo {
+    width: 70px;
+    height: 60px;
+  }
+  .header--fixed {
+    padding: 5px 40px;
   }
 }
 

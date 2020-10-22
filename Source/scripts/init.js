@@ -103,7 +103,10 @@ window.onload = () => {
             },
             openProducts(event){
                 const title = event.target.textContent;
-                const currentCategory = event.target.parentElement;
+                let currentCategory = event.target.parentElement;
+                if(!currentCategory.hasAttribute('data-id')){
+                    currentCategory = currentCategory.parentElement;
+                }
                 const currentCategoryId = currentCategory.getAttribute('data-id');
                 this.currentProductsBlock = this.productsBlocks.filter(item => {
                     if(item.getAttribute('data-id') === currentCategoryId){
@@ -235,6 +238,13 @@ window.onload = () => {
                     this.currentOrder.forEach(item => {
                         delete item['id']
                     })
+
+                    let order = this.currentOrder.map(item => {
+                        return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
+                    })
+
+                    console.log(order)
+
 
                     this.message = JSON.stringify(this.currentOrder);
                     this.sumOrder = String(this.amountOrder);

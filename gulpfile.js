@@ -70,7 +70,7 @@ gulp.task('css:build', function () {
 
         /* Минификация CSS */
 
-        //.pipe(cleanCSS({level: 2}))
+        .pipe(cleanCSS({level: 2}))
 
         .pipe(gulp.dest(property.result.css));
 });
@@ -111,7 +111,7 @@ gulp.task('scripts:build', function () {
                 presets: ['@babel/env']
             })
         )
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest(property.result.content.scripts));
 });
 

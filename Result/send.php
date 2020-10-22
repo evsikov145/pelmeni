@@ -3,7 +3,7 @@ header("Content-Type: text/html; charset=utf-8");
 
 if(isset($_POST)) {
 
-$email = "evsikovoleg145@gmail.com"; #Email, на него придут письма
+$email = "hunter37ru@yandex.ru"; #Email, на него придут письма
 $title = "Заказ с сайта "; #Заголовок письма
 
 $text = "

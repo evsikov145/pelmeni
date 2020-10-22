@@ -31,7 +31,7 @@ h2 {
   font-size: 120px;
   font-weight: 400;
   color: inherit;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 h3 {
@@ -74,6 +74,18 @@ button {
   outline: none;
 }
 
+@media all and (max-width: 1920px){
+  h2 {
+    margin-bottom: 20px;
+  }
+  h6 {
+    font-size: 26px;
+  }
+  span {
+    font-size: 16px;
+  }
+}
+
 @media all and (max-width: 1000px){
   h2 {
     font-size: 100px;
@@ -83,6 +95,12 @@ button {
 @media all and (max-width: 800px){
   h2 {
     font-size: 80px;
+  }
+}
+
+@media all and (max-width: 600px){
+  h6 {
+    font-size: 22px;
   }
 }
 

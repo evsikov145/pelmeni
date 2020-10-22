@@ -59,6 +59,31 @@
   }
 }
 
+@media all and (max-width: 1920px){
+  .why {
+    padding: 30px 20px 50px;
+  }
+  .why__text::after {
+    bottom: -35px;
+  }
+  .why h2{
+    margin-bottom: 40px;
+  }
+  .why-item {
+    max-width: 300px;
+  }
+  .why-item h5 {
+    margin-bottom: 15px;
+  }
+  .why-pic img {
+    max-width: 200px;
+    max-height: 110px;
+  }
+  .why-block {
+    margin-bottom: 50px;
+  }
+}
+
 @media all and (max-width: 1200px){
   .why-block {
     flex-wrap: wrap;
@@ -71,6 +96,7 @@
       min-height: auto;
     }
   }
+
 }
 
 @media all and (max-width: 826px){
@@ -100,5 +126,8 @@
     &::after {
       bottom: -30px;
     }
+  }
+  .why-pic {
+    margin-bottom: 20px;
   }
 }
