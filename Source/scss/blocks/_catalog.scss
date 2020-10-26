@@ -153,7 +153,7 @@
   }
   .catalog-item {
     max-width: 300px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     h6 {
       min-height: 52px;
       margin-bottom: 10px;
@@ -175,6 +175,11 @@
 @media all and (max-width: 1615px){
   .slider__item {
     max-width: none;
+  }
+  .slider--active {
+    .slider__item {
+      max-width: none;
+    }
   }
   .arrow-next,
   .arrow-prev{
@@ -211,6 +216,23 @@
   .catalog {
     .btn {
       margin-top: 30px;
+      height: 75px;
+      svg {
+        width: 170px;
+        height: 75px;
+      }
+      &__text {
+        top: 35%;
+      }
+    }
+    .arrow-next, .arrow-prev {
+      width: 40px;
+      height: 40px;
+      top: 41%;
+    }
+    #arrow-next, #arrow-prev {
+      width: 40px;
+      height: 40px;
     }
   }
   .catalog-item {
@@ -246,10 +268,7 @@
   .catalog-item__desc {
     padding: 10px 20px;
   }
-  .arrow-next, .arrow-prev {
-    bottom: 100px;
-    top: auto;
-  }
+
   .catalog {
     margin-bottom: 30px;
   }

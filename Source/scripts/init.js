@@ -385,9 +385,15 @@ window.onload = () => {
                         nextArrow: $(arrowNext),
                         prevArrow: $(arrowPrev),
                         speed: 300,
-                        slidesToShow: 3,
+                        slidesToShow: 4,
                         slidesToScroll: 1,
                         responsive: [
+                            {
+                                breakpoint: 1615,
+                                settings: {
+                                    slidesToShow: 3
+                                }
+                            },
                             {
                                 breakpoint: 1200,
                                 settings: {
@@ -429,6 +435,14 @@ window.onload = () => {
                 })
             }
         })
+
+        /*productsSliders.forEach(slider => {
+            console.log(slider.children)
+            if(slider.children.length > 4){
+                slider.classList.add('slider--active');
+                initProductsSlider(true , slider)
+            }
+        })*/
 
     }catch (e) {
         console.log(e + 'products sliders')

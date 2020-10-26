@@ -27,7 +27,10 @@ body {
         font-size: 24px;
         color: white;
     }
-    &:hover {
+}
+
+@media all and (min-width: 431px){
+    .btn:hover {
         svg {
             path {
                 transition: .5s;
@@ -38,12 +41,18 @@ body {
 }
 
 .cart {
-    background: url("../images/svg/product-cart.svg") center no-repeat;
-    background-size: 60px;
-    width: 60px;
-    height: 60px;
-    position: relative;
+    border: 1px solid $color-gray;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
     cursor: pointer;
+    font-family: $font-balsamiq;
+    background: rgba(0,0,0,0);
+    &:hover {
+        background: $color-red;
+        color: white;
+
+    }
     .heart {
         display: none;
         position: absolute;
@@ -58,6 +67,18 @@ body {
 }
 
 .catalog-item--add {
+    .cart {
+        background: url("../images/svg/product-cart.svg") center no-repeat;
+        background-size: 60px;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        cursor: pointer;
+        font-size: 0;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+    }
     .heart {
         display: block;
     }
@@ -186,10 +207,12 @@ input[type="checkbox"]:checked + label:after{
 }
 
 @media all and (max-width: 1920px){
-    .cart {
-        width: 40px;
-        height: 40px;
-        background-size: 40px;
+    .catalog-item--add {
+        .cart {
+            width: 40px;
+            height: 40px;
+            background-size: 40px;
+        }
     }
 
     .cart .heart {
@@ -220,11 +243,14 @@ input[type="checkbox"]:checked + label:after{
             left: 34px;
         }
     }
-    .cart {
-        width: 30px;
-        height: 30px;
-        background-size: 30px;
+    .catalog-item--add {
+        .cart {
+            width: 30px;
+            height: 30px;
+            background-size: 30px;
+        }
     }
+
 
     .cart .heart {
         top: 11px;
@@ -241,5 +267,15 @@ input[type="checkbox"]:checked + label:after{
     }
     textarea {
         padding: 20px;
+    }
+    .g-whatsapp {
+        width: 40px;
+        height: 40px;
+    }
+    .whatsapp-btn img {
+        left: 11%;
+        top: 11%;
+        width: 25px;
+        height: 25px;
     }
 }
