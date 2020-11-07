@@ -12,6 +12,40 @@
 
     <link rel="stylesheet" href="Content/css/main.css">
 
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1258926851174494');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=1258926851174494&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(66850654, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66850654" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
 </head>
 
 <body>
@@ -704,26 +738,6 @@
                     </div>
                 </div>
         
-        
-                <div class="slider__item">
-                    <div data-id="8" class="catalog-item" @click="addProductToCart">
-                        <div class="catalog-item__pic">
-                            <img src="Content/images/products/vareniki/vareniki4.jpg" alt="product">
-                        </div>
-                        <div class="catalog-item__desc">
-                            <h6>Вареники Вишня</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), вишня, сахар.</p>
-                            <span>450 г.</span>
-                            <div class="catalog-cell">
-                                <p class="catalog-item__price">275 р.</p>
-                                <button class="cart cart--product">
-                                    Добавить
-                                    <span class="heart"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -856,7 +870,7 @@
                             <img src="Content/images/products/kotleti/kotleti3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Шницели Курица</h6>
+                            <h6>Котлеты Курица</h6>
                             <p>Состав: рубленная куринная грудка, яйцо, соль, чеснок сушеный, черный перец молотый, сметана,
                                 мука.</p>
                             <span>450 г.</span>
@@ -955,6 +969,29 @@
             </div>
         
             <div class="product-slider slider">
+        
+                <div class="slider__item">
+        
+                    <div data-id="21" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/manti/manti5.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Манты Говядина</h6>
+                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук рубленный, соль, перец черный
+                                молотый.</p>
+                            <span>500 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">415 р.</p>
+                                <button class="cart cart--product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
                 <div class="slider__item">
         
                     <div data-id="12" class="catalog-item" @click="addProductToCart">
@@ -1356,6 +1393,26 @@
             <div class="product-slider slider">
         
                 <div  class="slider__item">
+                    <div data-id="22" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/pelmeni/pelmeni5.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Курзе</h6>
+                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук, соль, перец черный молотый.</p>
+                            <span>450 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">350 р.</p>
+                                <button class="cart cart--product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div  class="slider__item">
                     <div data-id="2" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni2.jpg" alt="product">
@@ -1567,7 +1624,7 @@
 <script src="Scripts/init.js"></script>
 
 <div class="whatsapp-btn">
-    <a href="https://wa.me/79771677284?text=Здравствуйте! У меня есть вопросы по товарам Мамины пельмени." target="_blank" class="g-whatsapp">
+    <a href="https://wa.me/79771677284?text=Здравствуйте! У меня есть вопросы по товарам Мамины пельмени." target="_blank" rel="noreferrer" class="g-whatsapp">
         <img src="Content/images/watsapp.svg" alt="whatsapp">
     </a>
 </div>

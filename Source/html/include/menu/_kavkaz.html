@@ -81,6 +81,26 @@
     <div class="product-slider slider">
 
         <div  class="slider__item">
+            <div data-id="22" class="catalog-item" @click="addProductToCart">
+                <div class="catalog-item__pic">
+                    <img src="Content/images/products/pelmeni/pelmeni5.jpg" alt="product">
+                </div>
+                <div class="catalog-item__desc">
+                    <h6>Курзе</h6>
+                    <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук, соль, перец черный молотый.</p>
+                    <span>450 г.</span>
+                    <div class="catalog-cell">
+                        <p class="catalog-item__price">350 р.</p>
+                        <button class="cart cart--product">
+                            Добавить
+                            <span class="heart"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div  class="slider__item">
             <div data-id="2" class="catalog-item" @click="addProductToCart">
                 <div class="catalog-item__pic">
                     <img src="Content/images/products/pelmeni/pelmeni2.jpg" alt="product">
