@@ -129,7 +129,31 @@
   }
 }
 
+
+
 .catalog-block--slider {
+  .slider__item {
+    max-width: none;
+  }
+  .slider--active {
+    .slider__item {
+      max-width: none;
+    }
+  }
+}
+
+.best-slider--slider {
+  .slider__item {
+    max-width: none;
+  }
+  .slider--active {
+    .slider__item {
+      max-width: none;
+    }
+  }
+}
+
+.best-slider--active {
   .slider__item {
     max-width: none;
   }
