@@ -63,8 +63,8 @@
                     <a href="/"  class="nav__link link-delivery">Доставка</a>
                     <a href="/" class="nav__link link-contacts">Контакты</a>
                 </nav>
-                <a href="tel:89771677284" class="header__phone">+7 977 167 72 84</a>
                 <div class="header-wrapper">
+                    <a href="tel:89771677284" class="header__phone">+7 977 167 72 84</a>
                     <div v-cloak class="header-cart link-order">
                         <div  v-if="numberInCart > 0"  class="header-cart__count">
                             {{ numberInCart }}
@@ -290,36 +290,45 @@
 
         <h2>Почему выбирают нас</h2>
 
-        <div class="why-block">
-            <div class="why-item">
-                <div class="why-pic">
-                    <img src="Content/images/why/why1.png" alt="">
-                </div>
-                <h5>Ручная лепка</h5>
-                <p>Вся наша продукция изготавливается исключительно вручную</p>
+        <div class="why-wrapper">
+
+            <div class="why-video">
+                <iframe width="560px" height="315px" src="https://www.youtube.com/embed/N9aS8jBaTS8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="why-item">
-                <div class="why-pic">
-                    <img src="Content/images/why/why2.png" alt="">
+
+            <div class="why-block">
+                <div class="why-item">
+                    <div class="why-pic">
+                        <img src="Content/images/why/why1.png" alt="">
+                    </div>
+                    <h5>Ручная лепка</h5>
+                    <p>Вся наша продукция изготавливается исключительно вручную</p>
                 </div>
-                <h5>Натуральные ингредиенты</h5>
-                <p>Для своего продукта мы берем только натуральные ингредиенты</p>
-            </div>
-            <div class="why-item">
-                <div class="why-pic">
-                    <img src="Content/images/why/why3.png" alt="">
+                <div class="why-item">
+                    <div class="why-pic">
+                        <img src="Content/images/why/why2.png" alt="">
+                    </div>
+                    <h5>Натуральные ингредиенты</h5>
+                    <p>Для своего продукта мы берем только натуральные ингредиенты</p>
                 </div>
-                <h5>Высокий уровень качества</h5>
-                <p>Самые качественные и свежие изделия и продукты изготовления</p>
-            </div>
-            <div class="why-item">
-                <div class="why-pic">
-                    <img src="Content/images/why/why4.png" alt="">
+                <div class="why-item">
+                    <div class="why-pic">
+                        <img src="Content/images/why/why3.png" alt="">
+                    </div>
+                    <h5>Высокий уровень качества</h5>
+                    <p>Самые качественные и свежие изделия и продукты изготовления</p>
                 </div>
-                <h5>Широкий ассортимент</h5>
-                <p>В нашем меню вы найдете продукт для каждого члена вашей семьи</p>
+                <div class="why-item">
+                    <div class="why-pic">
+                        <img src="Content/images/why/why4.png" alt="">
+                    </div>
+                    <h5>Широкий ассортимент</h5>
+                    <p>В нашем меню вы найдете продукт для каждого члена вашей семьи</p>
+                </div>
             </div>
+
         </div>
+
         
         <p class="why__text">Попробуйте и убедитесь сами, в качестве нашей продукции!</p>
 
@@ -1569,7 +1578,7 @@
                     <p v-cloak v-else class="order-form__title">
                         Пожалуйста исправьте указанные ошибки:
                     </p>
-                    <p class="error" v-cloak v-if="orderError">В заказе отсутствует товар.</p>
+                    <p class="error" v-cloak v-if="orderError">{{orderErrorText}}</p>
                     <p class="error" v-cloak v-if="nameError">Укажите Ваше имя.</p>
                     <input v-model.trim="name" type="text" name="name" placeholder="Имя">
                     <p class="error" v-cloak v-if="phoneError">Укажите Ваш телефон.</p>

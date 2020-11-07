@@ -24,6 +24,7 @@ window.onload = () => {
             phoneError: false,
             addressError: false,
             orderError: false,
+            orderErrorText: '',
             check1: true,
             check2: false
         },
@@ -205,7 +206,7 @@ window.onload = () => {
                 const product = this.listProduct.find(item => item.id === id);
                 return product.price * number;
             },
-            submitForm(event){
+            submitForm: function (event) {
 
                 const form = this.searchForm(event.target);
 
@@ -216,9 +217,10 @@ window.onload = () => {
                 this.orderError = false;
                 this.errors = false;
 
-                if(!this.currentOrder.length) {
-                    this.orderError = true;
+                if (!this.currentOrder.length) {
+                    this.orderErrorText = `В заказе отсутствует товар.`;
                     this.errors = true;
+                    this.orderError = true;
                 }
 
                 if (this.name === '') {
@@ -226,18 +228,25 @@ window.onload = () => {
                     this.errors = true;
                     form.classList.add('form--error_name');
                 }
-                if(this.address === ''){
+                if (this.address === '') {
                     this.addressError = true;
                     this.errors = true;
                     form.classList.add('form--error_address');
                 }
-                if(this.phone === ''){
+                if (this.phone === '') {
                     this.phoneError = true;
                     this.errors = true;
                     form.classList.add('form--error_phone');
                 }
 
-                if(!this.errors){
+                if(this.amountOrder < 1500 && !this.orderError){
+                    this.errors = true;
+                    const sum = 1500 - this.amountOrder;
+                    this.orderErrorText = `Заказ должен быть от 1500 рублей. Не хватает ${sum} рублей.`;
+                    this.orderError = true;
+                }
+
+                if (!this.errors) {
 
                     this.currentOrder.forEach(item => {
                         delete item['id']
@@ -247,18 +256,12 @@ window.onload = () => {
                         return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
                     })
 
-                    console.log(order)
-
-
-                    this.message = JSON.stringify(this.currentOrder);
-                    this.sumOrder = String(this.amountOrder);
-
                     let formData = new FormData(form);
-                    formData.append('message', JSON.stringify(this.currentOrder));
+                    formData.append('message', JSON.stringify(order));
                     formData.append('sum', String(this.amountOrder));
-                    if(this.check1){
+                    if (this.check1) {
                         formData.append('payment', 'Наличными');
-                    }else {
+                    } else {
                         formData.append('payment', 'Переводом на банковскую карту');
                     }
 
@@ -266,14 +269,13 @@ window.onload = () => {
                         method: 'POST',
                         body: formData
                     })
-                    .then((res) => {
-                        console.log(res)
-                        if(res.ok){
-                            location.assign("/thanks.html");
-                        }else {
-                            console.log('Заказ не отправился!');
-                        }
-                    })
+                        .then((res) => {
+                            if (res.ok) {
+                                location.assign("/thanks.html");
+                            } else {
+                                console.log('Заказ не отправился!');
+                            }
+                        })
                 }
             },
             searchForm(target){

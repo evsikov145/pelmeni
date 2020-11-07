@@ -278,4 +278,7 @@ input[type="checkbox"]:checked + label:after{
         width: 25px;
         height: 25px;
     }
+    .error {
+        margin-left: 0;
+    }
 }

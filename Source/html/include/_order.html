@@ -29,7 +29,7 @@
                 <p v-cloak v-else class="order-form__title">
                     Пожалуйста исправьте указанные ошибки:
                 </p>
-                <p class="error" v-cloak v-if="orderError">В заказе отсутствует товар.</p>
+                <p class="error" v-cloak v-if="orderError">{{orderErrorText}}</p>
                 <p class="error" v-cloak v-if="nameError">Укажите Ваше имя.</p>
                 <input v-model.trim="name" type="text" name="name" placeholder="Имя">
                 <p class="error" v-cloak v-if="phoneError">Укажите Ваш телефон.</p>

@@ -23,16 +23,18 @@
     min-height: auto;
     z-index: 999;
     .logo {
+      min-width: auto;
       width: 100px;
       height: 80px;
+      background-size: 100%;
     }
   }
 }
 
 .logo {
   background: url("../images/svg/logo.svg") center no-repeat;
-  background-size: 100%;
-  width: 151px;
+  background-size: 151px 130px;
+  min-width: 151px;
   height: 130px;
   font-size: 0;
 }
@@ -147,11 +149,11 @@
   .header-nav {
     display: none;
   }
-  .header__phone {
-    display: none;
-  }
   .btn-menu {
     display: block;
+  }
+  .header__phone {
+    margin-left: 34px;
   }
   .header-wrapper {
     justify-content: flex-end;
@@ -159,6 +161,37 @@
   }
   .header-cart {
     margin-right: 20px;
+  }
+}
+
+@media all and (max-width: 650px){
+  .header__phone {
+    margin: 0 10px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .header__phone {
+    width: 100%;
+    text-align: right;
+    margin-right: 0;
+  }
+  .header-wrapper {
+    flex-wrap: wrap;
+  }
+  .btn-menu {
+    margin-right: 0;
+  }
+}
+
+@media all and (max-width: 450px){
+  .header__phone {
+    font-size: 20px;
+  }
+  .logo {
+    background: url(../images/svg/logo.svg) center/100% no-repeat;
+    min-width: auto;
+    width: 151px;
   }
 }
 

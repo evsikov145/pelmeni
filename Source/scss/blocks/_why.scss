@@ -12,12 +12,17 @@
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 70px;
+    width: 50%;
+    flex-wrap: wrap;
   }
   &-item {
-    max-width: 388px;
-    width: 100%;
-    padding: 0 40px;
+    max-width: 320px;
+    width: 50%;
+    padding: 0 20px;
     text-align: center;
+    &:first-of-type {
+      margin-bottom: 20px;
+    }
     h5 {
       font-size: 24px;
       margin-bottom: 30px;
@@ -59,6 +64,17 @@
   }
 }
 
+.why-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-video {
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
 @media all and (max-width: 1920px){
   .why {
     padding: 30px 20px 50px;
@@ -68,9 +84,6 @@
   }
   .why h2{
     margin-bottom: 40px;
-  }
-  .why-item {
-    max-width: 300px;
   }
   .why-item h5 {
     margin-bottom: 15px;
@@ -86,12 +99,17 @@
 
 @media all and (max-width: 1200px){
   .why-block {
-    flex-wrap: wrap;
     margin-bottom: 30px;
+    width: 100%;
+  }
+  .why-wrapper {
+    flex-direction: column;
+  }
+  .why-video {
+    margin-bottom: 20px;
   }
   .why-item {
-    width: 50%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     h5 {
       min-height: auto;
     }
@@ -104,6 +122,13 @@
     h5 {
       min-height: 48px;
     }
+  }
+}
+
+@media all and (max-width: 700px){
+  .why-video iframe {
+    width: 100%;
+    height: 200px;
   }
 }
 
