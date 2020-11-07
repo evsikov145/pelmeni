@@ -117,6 +117,10 @@ window.onload = () => {
                     this.sectionMenuTitle = title;
                     this.categoriesMenu.style.display = 'none';
                     this.currentProductsBlock[0].style.height = 'auto';
+                    const initSlider = this.currentProductsBlock[0].querySelector('.slick-initialized');
+                    if(initSlider){
+                        this.currentProductsBlock[0].classList.add('catalog-block--active')
+                    }
                     if(window.innerWidth < 1615){
                         this.currentProductsBlock[0].classList.add('catalog-block--active')
                     }
@@ -414,6 +418,15 @@ window.onload = () => {
             }
         }
 
+        if(window.innerWidth >= 1615){
+            productsSliders.forEach(slider => {
+                if(slider.children.length > 4){
+                    slider.parentElement.classList.add('catalog-block--slider')
+                    initProductsSlider(true , slider)
+                }
+            })
+        }
+
         if(window.innerWidth < 1615){
             productsSliders && productsSliders.forEach(slider => {
                 initProductsSlider(true , slider)
@@ -429,7 +442,8 @@ window.onload = () => {
                 })
             }else {
                 productsSliders.forEach(slider => {
-                    if(slider.classList.contains('slick-initialized')){
+                    const parent = slider.parentElement;
+                    if(slider.classList.contains('slick-initialized') && !parent.classList.contains('catalog-block--slider')){
                         initProductsSlider(false, slider)
                     }
                 })
