@@ -252,13 +252,16 @@ window.onload = () => {
                         delete item['id']
                     })
 
-                    let order = this.currentOrder.map(item => {
+                   /*let order = this.currentOrder.map(item => {
                         return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
-                    })
+                    })*/
 
                     let formData = new FormData(form);
-                    formData.append('message', JSON.stringify(order));
+
+                    formData.append('message', JSON.stringify(this.currentOrder));
                     formData.append('sum', String(this.amountOrder));
+
+
                     if (this.check1) {
                         formData.append('payment', 'Наличными');
                     } else {

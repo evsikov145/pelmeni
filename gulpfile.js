@@ -111,7 +111,7 @@ gulp.task('scripts:build', function () {
                 presets: ['@babel/env']
             })
         )
-        .pipe(uglify())
+        /*.pipe(uglify())*/
         .pipe(gulp.dest(property.result.content.scripts));
 });
 
