@@ -300,11 +300,11 @@ window.onload = () => {
 
             this.getHeightPromoSection();
 
-            window.addEventListener('resize', () => {
+           /* window.addEventListener('resize', () => {
                 this.getHeightPromoSection()
-            })
+            })*/
 
-            window.addEventListener('scroll', this.fixedHeader);
+            //window.addEventListener('scroll', this.fixedHeader);
 
             this.categoriesMenu = document.querySelector('.menu-block');
             this.sectionMenu = document.querySelector('.menu');
@@ -316,14 +316,14 @@ window.onload = () => {
     })
 
     try {
-
         // Slider Best Products
-        const bestProductSlider = document.querySelector('.best-slider');
-        const initBestSlider = (flag, section) => {
-            if(flag){
-                const parent = section.parentElement;
-                const arrowNext = parent.querySelector('.arrow-next');
-                const arrowPrev = parent.querySelector('.arrow-prev');
+        var bestProductSlider = document.querySelector('.best-slider');
+
+        var initBestSlider = function initBestSlider(flag, section) {
+            if (flag) {
+                var parent = section.parentElement;
+                var arrowNext = parent.querySelector('.arrow-next');
+                var arrowPrev = parent.querySelector('.arrow-prev');
                 $(section).slick({
                     dots: true,
                     infinite: false,
@@ -333,142 +333,194 @@ window.onload = () => {
                     speed: 300,
                     slidesToShow: 4,
                     slidesToScroll: 1,
-                    responsive: [
-                        {
-                            breakpoint: 1615,
-                            settings: {
-                                slidesToShow: 3
-                            }
-                        },
-                        {
-                            breakpoint: 1200,
-                            settings: {
-                                slidesToShow: 2
-                            }
-                        },
-                        {
-                            breakpoint: 800,
-                            settings: {
-                                slidesToShow: 1
-                            }
+                    responsive: [{
+                        breakpoint: 1615,
+                        settings: {
+                            slidesToShow: 3
                         }
-                    ]
-                })
-            }else {
-                $(section).slick('unslick')
+                    }, {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }, {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }]
+                });
+            } else {
+                $(section).slick('unslick');
             }
+        };
 
-        }
-
-        if(bestProductSlider.children.length > 4){
+        if (bestProductSlider.children.length > 4) {
             bestProductSlider.classList.add('best-slider--slider');
-            bestProductSlider && initBestSlider(true ,bestProductSlider)
+            bestProductSlider && initBestSlider(true, bestProductSlider);
         }
 
-        if(window.innerWidth < 1615){
-            bestProductSlider && initBestSlider(true ,bestProductSlider)
+        if (window.innerWidth < 1615) {
+            bestProductSlider && initBestSlider(true, bestProductSlider);
             bestProductSlider.classList.add('best-slider--active');
         }
 
-        window.addEventListener('resize', () => {
-            if(window.innerWidth < 1615){
-                if(!bestProductSlider.classList.contains('slick-initialized')){
+        window.addEventListener('resize', function () {
+            if (window.innerWidth < 1615) {
+                if (!bestProductSlider.classList.contains('slick-initialized')) {
                     bestProductSlider.classList.add('best-slider--active');
-                    bestProductSlider && initBestSlider(true, bestProductSlider)
+                    bestProductSlider && initBestSlider(true, bestProductSlider);
                 }
-            }else {
-                if(bestProductSlider.classList.contains('slick-initialized') && !bestProductSlider.classList.contains('best-slider--slider')){
+            } else {
+                if (bestProductSlider.classList.contains('slick-initialized') && !bestProductSlider.classList.contains('best-slider--slider')) {
                     bestProductSlider.classList.remove('best-slider--active');
-                    bestProductSlider && initBestSlider(false, bestProductSlider)
+                    bestProductSlider && initBestSlider(false, bestProductSlider);
                 }
             }
-        })
-
-
-    }catch (e){
-        console.log(e + 'best slider')
+        });
+    } catch (e) {
+        console.log(e + 'best slider');
     }
 
+    try {
+        // Slider Promotion Products
+        var promotionProductSlider = document.querySelector('.promotion-slider');
+
+        var initPromotionSlider = function initPromotionSlider(flag, section) {
+            if (flag) {
+                var parent = section.parentElement;
+                var arrowNext = parent.querySelector('.arrow-next');
+                var arrowPrev = parent.querySelector('.arrow-prev');
+                $(section).slick({
+                    dots: true,
+                    infinite: false,
+                    arrows: true,
+                    nextArrow: $(arrowNext),
+                    prevArrow: $(arrowPrev),
+                    speed: 300,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    responsive: [{
+                        breakpoint: 1615,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }, {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }, {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }]
+                });
+            } else {
+                $(section).slick('unslick');
+            }
+        };
+
+        if (promotionProductSlider.children.length > 4) {
+            promotionProductSlider.classList.add('promotion-slider--slider');
+            promotionProductSlider && initPromotionSlider(true, promotionProductSlider);
+        }
+
+        if (window.innerWidth < 1615) {
+            promotionProductSlider && initPromotionSlider(true, promotionProductSlider);
+            promotionProductSlider.classList.add('promotion-slider--active');
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth < 1615) {
+                if (!promotionProductSlider.classList.contains('slick-initialized')) {
+                    promotionProductSlider.classList.add('promotion-slider--active');
+                    promotionProductSlider && initPromotionSlider(true, promotionProductSlider);
+                }
+            } else {
+                if (promotionProductSlider.classList.contains('slick-initialized') && !promotionProductSlider.classList.contains('promotion-slider--slider')) {
+                    promotionProductSlider.classList.remove('promotion-slider--active');
+                    promotionProductSlider && initPromotionSlider(false, promotionProductSlider);
+                }
+            }
+        });
+    } catch (e) {
+        console.log(e + 'promotion slider');
+    }
 
     try {
-
         //Slider Products
+        var productsSliders = document.querySelectorAll('.product-slider');
 
-        const productsSliders = document.querySelectorAll('.product-slider');
-
-        const initProductsSlider = (flag, section) => {
-            if(flag){
-                    const parent = section.parentElement;
-                    const arrowNext = parent.querySelector('.arrow-next');
-                    const arrowPrev = parent.querySelector('.arrow-prev');
-                    $(section).slick({
-                        dots: true,
-                        infinite: false,
-                        arrows: true,
-                        nextArrow: $(arrowNext),
-                        prevArrow: $(arrowPrev),
-                        speed: 300,
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        responsive: [
-                            {
-                                breakpoint: 1615,
-                                settings: {
-                                    slidesToShow: 3
-                                }
-                            },
-                            {
-                                breakpoint: 1200,
-                                settings: {
-                                    slidesToShow: 2
-                                }
-                            },
-                            {
-                                breakpoint: 800,
-                                settings: {
-                                    slidesToShow: 1
-                                }
-                            }
-                        ]
-                    })
-
-            }else {
-                $(section).slick('unslick')
+        var initProductsSlider = function initProductsSlider(flag, section) {
+            if (flag) {
+                var parent = section.parentElement;
+                var arrowNext = parent.querySelector('.arrow-next');
+                var arrowPrev = parent.querySelector('.arrow-prev');
+                $(section).slick({
+                    dots: true,
+                    infinite: false,
+                    arrows: true,
+                    nextArrow: $(arrowNext),
+                    prevArrow: $(arrowPrev),
+                    speed: 300,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    responsive: [{
+                        breakpoint: 1615,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }, {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }, {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }]
+                });
+            } else {
+                $(section).slick('unslick');
             }
-        }
+        };
 
-        if(window.innerWidth >= 1615){
-            productsSliders.forEach(slider => {
-                if(slider.children.length > 4){
-                    slider.parentElement.classList.add('catalog-block--slider')
-                    initProductsSlider(true , slider)
+        if (window.innerWidth >= 1615) {
+            productsSliders.forEach(function (slider) {
+                if (slider.children.length > 4) {
+                    slider.parentElement.classList.add('catalog-block--slider');
+                    initProductsSlider(true, slider);
                 }
-            })
+            });
         }
 
-        if(window.innerWidth < 1615){
-            productsSliders && productsSliders.forEach(slider => {
-                initProductsSlider(true , slider)
-            })
+        if (window.innerWidth < 1615) {
+            productsSliders && productsSliders.forEach(function (slider) {
+                initProductsSlider(true, slider);
+            });
         }
 
-        window.addEventListener('resize', () => {
-            if(window.innerWidth < 1615){
-                productsSliders.forEach(slider => {
-                    if(!slider.classList.contains('slick-initialized')){
-                        initProductsSlider(true, slider)
+        window.addEventListener('resize', function () {
+            if (window.innerWidth < 1615) {
+                productsSliders.forEach(function (slider) {
+                    if (!slider.classList.contains('slick-initialized')) {
+                        initProductsSlider(true, slider);
                     }
-                })
-            }else {
-                productsSliders.forEach(slider => {
-                    const parent = slider.parentElement;
-                    if(slider.classList.contains('slick-initialized') && !parent.classList.contains('catalog-block--slider')){
-                        initProductsSlider(false, slider)
+                });
+            } else {
+                productsSliders.forEach(function (slider) {
+                    var parent = slider.parentElement;
+
+                    if (slider.classList.contains('slick-initialized') && !parent.classList.contains('catalog-block--slider')) {
+                        initProductsSlider(false, slider);
                     }
-                })
+                });
             }
-        })
-
+        });
         /*productsSliders.forEach(slider => {
             console.log(slider.children)
             if(slider.children.length > 4){
@@ -476,9 +528,8 @@ window.onload = () => {
                 initProductsSlider(true , slider)
             }
         })*/
-
-    }catch (e) {
-        console.log(e + 'products sliders')
+    } catch (e) {
+        console.log(e + 'products sliders');
     }
 
 

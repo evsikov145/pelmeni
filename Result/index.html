@@ -53,7 +53,7 @@
 <main id="main" role="main">
 
     <section class="promo">
-    
+
         <header class="header">
             <div class="header-block">
                 <div class="logo">logo</div>
@@ -97,7 +97,7 @@
                 </div>
             </div>
         </header>
-    
+
         <h3>Ручная лепка</h3>
         <h1>Мамины пельмени</h1>
         <h5>Попробовав раз, ем и сейчас!</h5>
@@ -111,20 +111,41 @@
 
     <section class="catalog">
 
-        <h2>Топ недели</h2>
+        <h2>Акции</h2>
 
-        <div class="catalog-block best-slider slider">
-            <div class="slider__item">
-                <div data-id="1" class="catalog-item" @click="addProductToCart">
+        <div class="catalog-block promotion-slider slider">
+
+            <!--<div class="slider__item">
+                <div data-id="25" class="catalog-item" @click="addProductToCart">
                     <div class="catalog-item__pic">
-                        <img src="Content/images/products/best/product1.jpg" alt="product">
+                        <img src="Content/images/promotion/product1.jpg" alt="product">
                     </div>
                     <div class="catalog-item__desc">
-                        <h6>Пельмени Говядина и Свинина</h6>
-                        <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук, соль, перец черный молотый.</p>
-                        <span>450 г.</span>
+                        <h6>Мантоварка + Манты</h6>
+                        <p>Мантоварка 4х секционная, выполнена из алюминия + манты 500 г на выбор с любой начинкой из ассортимента.</p>
+                        <span>Не входит в общую сумму заказа</span>
                         <div class="catalog-cell">
-                            <p class="catalog-item__price">330 р.</p>
+                            <p class="catalog-item__price">1990 р.</p>
+                            <button class="cart cart--product">
+                                Добавить
+                                <span class="heart"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="slider__item">
+                <div data-id="26" class="catalog-item" @click="addProductToCart">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/promotion/product2.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Хинкали (свинина/говядина) 3+1</h6>
+                        <p>Состав: тесто (Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), свинина, говядина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
+                        <span>2320 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">1200 р.</p>
                             <button class="cart cart--product">
                                 Добавить
                                 <span class="heart"></span>
@@ -133,73 +154,11 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="slider__item">
-                <div data-id="13" class="catalog-item" @click="addProductToCart">
+                <div data-id="27" class="catalog-item" @click="addProductToCart">
                     <div class="catalog-item__pic">
-                        <img src="Content/images/products/best/product2.jpg" alt="product">
-                    </div>
-                    <div class="catalog-item__desc">
-                        <h6>Манты Баранина</h6>
-                        <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
-                        <span>500 г.</span>
-                        <div class="catalog-cell">
-                            <p class="catalog-item__price">435 р.</p>
-                            <button class="cart cart--product">
-                                Добавить
-                                <span class="heart"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        
-            <div class="slider__item">
-                <div data-id="10" class="catalog-item" @click="addProductToCart">
-                    <div class="catalog-item__pic">
-                        <img src="Content/images/products/best/product3.jpg" alt="product">
-                    </div>
-                    <div class="catalog-item__desc">
-                        <h6>Тефтели Говядина и Свинина</h6>
-                        <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
-                        <span>450 г.</span>
-                        <div class="catalog-cell">
-                            <p class="catalog-item__price">320 р.</p>
-                            <button class="cart cart--product">
-                                Добавить
-                                <span class="heart"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        
-            <div class="slider__item">
-                <div data-id="18" class="catalog-item" @click="addProductToCart">
-                    <div class="catalog-item__pic">
-                        <img src="Content/images/products/best/product4.jpg" alt="product">
-                    </div>
-                    <div class="catalog-item__desc">
-                        <h6>Сырники</h6>
-                        <p>Состав: творог 5%, яйцо, сахар, соль, крупа манная, мука, разрыхлитель.</p>
-                        <span>450 г.</span>
-                        <div class="catalog-cell">
-                            <p class="catalog-item__price">220 р.</p>
-                            <button class="cart cart--product">
-                                Добавить
-                                <span class="heart"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="slider__item">
-                <div data-id="19" class="catalog-item" @click="addProductToCart">
-                    <div class="catalog-item__pic">
-                        <img src="http://dummyimage.com/354x355/99cccc.jpeg" alt="product">
+                        <img src="Content/images/promotion/product3.jpg" alt="product">
                     </div>
                     <div class="catalog-item__desc">
                         <h6>Новая позиция 1</h6>
@@ -215,12 +174,12 @@
                     </div>
                 </div>
             </div>
-        
-        
+
+
             <div class="slider__item">
-                <div data-id="20" class="catalog-item" @click="addProductToCart">
+                <div data-id="28" class="catalog-item" @click="addProductToCart">
                     <div class="catalog-item__pic">
-                        <img src="http://dummyimage.com/354x355/99cccc.jpeg" alt="product">
+                        <img src="Content/images/promotion/product4.jpg" alt="product">
                     </div>
                     <div class="catalog-item__desc">
                         <h6>Новая позиция 2</h6>
@@ -236,8 +195,8 @@
                     </div>
                 </div>
             </div>
-        
-        
+
+
         </div>
 
         <div class="arrow-next">
@@ -327,6 +286,183 @@
 
     </section>
 
+    <!--<section class="catalog">
+
+         <h2>Топ недели</h2>
+
+         <div class="catalog-block best-slider slider">
+             <div class="slider__item">
+                 <div data-id="1" class="catalog-item" @click="addProductToCart">
+                     <div class="catalog-item__pic">
+                         <img src="Content/images/products/best/product1.jpg" alt="product">
+                     </div>
+                     <div class="catalog-item__desc">
+                         <h6>Пельмени Свинина/Говядина</h6>
+                         <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, свинина, лук, соль, перец черный молотый.</p>
+                         <span>450 г.</span>
+                         <div class="catalog-cell">
+                             <p class="catalog-item__price">330 р.</p>
+                             <button class="cart cart--product">
+                                 Добавить
+                                 <span class="heart"></span>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="slider__item">
+                 <div data-id="13" class="catalog-item" @click="addProductToCart">
+                     <div class="catalog-item__pic">
+                         <img src="Content/images/products/best/product2.jpg" alt="product">
+                     </div>
+                     <div class="catalog-item__desc">
+                         <h6>Манты Баранина</h6>
+                         <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
+                         <span>500 г.</span>
+                         <div class="catalog-cell">
+                             <p class="catalog-item__price">435 р.</p>
+                             <button class="cart cart--product">
+                                 Добавить
+                                 <span class="heart"></span>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+             <div class="slider__item">
+                 <div data-id="10" class="catalog-item" @click="addProductToCart">
+                     <div class="catalog-item__pic">
+                         <img src="Content/images/products/best/product3.jpg" alt="product">
+                     </div>
+                     <div class="catalog-item__desc">
+                         <h6>Тефтели Свинина/Говядина</h6>
+                         <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
+                         <span>450 г.</span>
+                         <div class="catalog-cell">
+                             <p class="catalog-item__price">320 р.</p>
+                             <button class="cart cart--product">
+                                 Добавить
+                                 <span class="heart"></span>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+             <div class="slider__item">
+                 <div data-id="18" class="catalog-item" @click="addProductToCart">
+                     <div class="catalog-item__pic">
+                         <img src="Content/images/products/best/product4.jpg" alt="product">
+                     </div>
+                     <div class="catalog-item__desc">
+                         <h6>Сырники</h6>
+                         <p>Состав: творог 5%, яйцо, сахарный песок, соль, крупа манная, мука, разрыхлитель.</p>
+                         <span>450 г.</span>
+                         <div class="catalog-cell">
+                             <p class="catalog-item__price">220 р.</p>
+                             <button class="cart cart--product">
+                                 Добавить
+                                 <span class="heart"></span>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+         </div>
+
+         <div class="arrow-next">
+             <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+ <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+     C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+     c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+ </svg>
+         </div>
+
+         <div class="arrow-prev">
+             <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+ <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+     C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+     c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+                 <g>
+ </g>
+ </svg>
+         </div>
+
+         <div class="btn link-menu">
+             <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
+             </svg>
+             <div class="btn__text">Полное меню</div>
+         </div>
+
+     </section>-->
+
     <section class="why">
 
         <h2>Почему выбирают нас</h2>
@@ -334,7 +470,7 @@
         <div class="why-wrapper">
 
             <div class="why-video">
-                <iframe width="560px" height="315px" src="https://www.youtube.com/embed/N9aS8jBaTS8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/yHfvNvBhd0I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="why-block">
@@ -370,14 +506,14 @@
 
         </div>
 
-        
+
         <p class="why__text">Попробуйте и убедитесь сами, в качестве нашей продукции!</p>
 
     </section>
 
     <section class="menu">
 
-        <h2>{{sectionMenuTitle}}</h2>
+        <h2 v-cloak>{{sectionMenuTitle}}</h2>
 
         <div
                 class="menu__close"
@@ -394,7 +530,7 @@
         </div>
 
         <div class="menu-block">
-        
+
             <div
                     class="menu-item"
                     data-id="1"
@@ -405,7 +541,7 @@
                     <h4>Пельмени</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="2"
@@ -416,7 +552,7 @@
                     <h4>Вареники</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="3"
@@ -427,7 +563,7 @@
                     <h4>Котлеты</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="4"
@@ -438,7 +574,7 @@
                     <h4>Манты</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="5"
@@ -449,7 +585,7 @@
                     <h4>Фаршировка</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="6"
@@ -460,7 +596,7 @@
                     <h4>Сырники</h4>
                 </div>
             </div>
-        
+
             <div
                     class="menu-item"
                     data-id="7"
@@ -471,22 +607,33 @@
                     <h4>Кавказская кухня Халяль</h4>
                 </div>
             </div>
-            
+
             <div
                     class="menu-item"
                     data-id="8"
                     @click="openProducts"
             >
-                <img src="http://dummyimage.com/753x362.png/99cccc" alt="">
+                <img src="Content/images/menu/menu8.png" alt="">
+                <div class="menu-item__title">
+                    <h4>Хинкали</h4>
+                </div>
+            </div>
+
+            <div
+                    class="menu-item"
+                    data-id="9"
+                    @click="openProducts"
+            >
+                <img src="Content/images/menu/menu9.png" alt="">
                 <div class="menu-item__title">
                     <h4>Блинчики</h4>
                 </div>
             </div>
-        
+
         </div>
 
         <div class="catalog-block" data-id="1">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -525,7 +672,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -564,7 +711,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
                 <div class="slider__item">
                     <div data-id="1" class="catalog-item" @click="addProductToCart">
@@ -572,8 +719,8 @@
                             <img src="Content/images/products/pelmeni/pelmeni1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Пельмени Говядина и Свинина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук, соль, перец черный
+                            <h6>Пельмени (свинина/говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), свинина, говядина, лук, соль, перец черный
                                 молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
@@ -586,16 +733,17 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div  class="slider__item">
                     <div data-id="2" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Пельмени Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук, соль, перец черный молотый.</p>
+                            <h6>Пельмени (говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук, соль, перец черный
+                                молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">350 р.</p>
@@ -607,17 +755,17 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div  class="slider__item">
                     <div data-id="3" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Пельмени Курица</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), филе грудки и окорок куринный, лук, соль, перец
-                                черный молотый.</p>
+                            <h6>Пельмени (курица)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), мясо курицы, лук, соль, перец черный
+                                молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">275 р.</p>
@@ -629,17 +777,16 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="4" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni4.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Пельмени Детские</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), филе грудки курицы, филе грудки индейки, лук,
-                                соль.</p>
+                            <h6>Пельмени "Детские" (курица/индейка)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), грудка куриная, грудка индейки, лук, соль.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">300 р.</p>
@@ -655,7 +802,7 @@
         </div>
 
         <div class="catalog-block" data-id="2">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -694,7 +841,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -733,7 +880,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
                 <div class="slider__item">
                     <div data-id="5" class="catalog-item" @click="addProductToCart">
@@ -741,11 +888,11 @@
                             <img src="Content/images/products/vareniki/vareniki1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Вареники Картошка и Лук</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), картофель отварной, лук обжареный.</p>
+                            <h6>Вареники (картошка/лук)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), картофель отварной, лук обжаренный на сливочном масле, соль.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
-                                <p class="catalog-item__price">140 р.</p>
+                                <p class="catalog-item__price">220 р.</p>
                                 <button class="cart cart--product">
                                     Добавить
                                     <span class="heart"></span>
@@ -754,16 +901,16 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="6" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/vareniki/vareniki2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Вареники Картошка, Лук и Грибы</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), картофель отварной, лук и шампиньоны обжаренные на
+                            <h6>Вареники (картошка/лук/грибы)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), картофель отварной, лук и грибы шампиньоны обжаренные на
                                 сливочном масле.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
@@ -776,16 +923,16 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="7" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/vareniki/vareniki3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Вареники Творог</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), творог, сахар, желток яйца.</p>
+                            <h6>Вареники (творог)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), творог 5%, желток яйца, сахарный песок, соль.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">235 р.</p>
@@ -797,12 +944,32 @@
                         </div>
                     </div>
                 </div>
-        
+
+                <!--<div class="slider__item">
+                    <div data-id="24" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/vareniki/vareniki4.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Вареники Вишня</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), вишня, сахарный песок, желток яйца.</p>
+                            <span>450 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">235 р.</p>
+                                <button class="cart cart&#45;&#45;product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
             </div>
         </div>
 
         <div class="catalog-block" data-id="3">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -841,7 +1008,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -880,7 +1047,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
                 <div class="slider__item">
                     <div data-id="9" class="catalog-item" @click="addProductToCart">
@@ -888,8 +1055,8 @@
                             <img src="Content/images/products/kotleti/kotleti1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Котлеты Говядина и Свинина </h6>
-                            <p>Состав: говядина, свинина, лук, сухари панировочные, яйцо, соль, перец черный молотый.</p>
+                            <h6>Котлеты "Домашние" (свинина/говядина)</h6>
+                            <p>Состав: свинина, говядина, яйцо куриное, лук свежий, лук обжаренный на сливочном масле, соль, перец черный молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">335 р.</p>
@@ -901,16 +1068,16 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="10" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/kotleti/kotleti2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Тефтели Говядина и Свинина</h6>
-                            <p>Состав: говядина, свинина, лук, рис отварной, яйцо, соль, перец черный молотый.</p>
+                            <h6>Тефтели (свинина/говядина)</h6>
+                            <p>Состав: свинина, говядина, рис отварной, лук, яйцо куриное, соль, перец черный молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">320 р.</p>
@@ -922,17 +1089,16 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="11" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/kotleti/kotleti3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Котлеты Курица</h6>
-                            <p>Состав: рубленная куринная грудка, яйцо, соль, чеснок сушеный, черный перец молотый, сметана,
-                                мука.</p>
+                            <h6>Котлеты (курица)</h6>
+                            <p>Состав: мясо курицы, крупа манная, лук обжаренный на сливочном масле, яичный желток, соль, перец черный молотый, чеснок сушеный, сухари панировочные.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">265 р.</p>
@@ -944,12 +1110,12 @@
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div>
 
         <div class="catalog-block" data-id="4">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -988,7 +1154,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1027,18 +1193,18 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
-        
+
                 <div class="slider__item">
-        
+
                     <div data-id="21" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti5.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Манты Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук рубленный, соль, перец черный
+                            <h6>Манты (говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук рубленный, соль, перец черный
                                 молотый.</p>
                             <span>500 г.</span>
                             <div class="catalog-cell">
@@ -1051,16 +1217,16 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="slider__item">
-        
+
                     <div data-id="12" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Манты Говядина и Свинина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, лук рубленный, соль, перец черный
+                            <h6>Манты (свинина/говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), свинина, говядина, лук рубленный, соль, перец черный
                                 молотый.</p>
                             <span>500 г.</span>
                             <div class="catalog-cell">
@@ -1073,9 +1239,9 @@
                         </div>
                     </div>
                 </div>
-        
-        
-                <div class="slider__item">
+
+
+                <!--<div class="slider__item">
                     <div data-id="13" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti2.jpg" alt="product">
@@ -1086,24 +1252,24 @@
                             <span>500 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">435 р.</p>
-                                <button class="cart cart--product">
+                                <button class="cart cart&#45;&#45;product">
                                     Добавить
                                     <span class="heart"></span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-        
-        
+                </div>-->
+
+
                 <div class="slider__item">
                     <div data-id="14" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Манты Баранина и Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), баранина, говядина, лук рубленный, соль, перец черный
+                            <h6>Манты (говядина/баранина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, баранина, курдючий жир, лук рубленный, соль, перец черный
                                 молотый, зира.</p>
                             <span>500 г.</span>
                             <div class="catalog-cell">
@@ -1116,33 +1282,33 @@
                         </div>
                     </div>
                 </div>
-        
-        
-                <div class="slider__item">
+
+
+                <!--<div class="slider__item">
                     <div data-id="15" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti4.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Манты Говядина, Свинина и Картошка</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, свинина, картофель рубленный, лук
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, свинина, картофель рубленный, лук
                                 рубленный, соль, перец черный молотый.</p>
                             <span>500 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">340 р.</p>
-                                <button class="cart cart--product">
+                                <button class="cart cart&#45;&#45;product">
                                     Добавить
                                     <span class="heart"></span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
 
         <div class="catalog-block" data-id="5">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1181,7 +1347,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1220,7 +1386,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
                 <div class="slider__item">
                     <div data-id="16" class="catalog-item" @click="addProductToCart">
@@ -1228,8 +1394,8 @@
                             <img src="Content/images/products/farsh/farsh1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Голубцы Говядина и Свинина</h6>
-                            <p>Состав: говядина, свинина, лук, капуста белокочанная, отварной рис, яйцо, соль, перец черный
+                            <h6>Голубцы (свинина/говядина)</h6>
+                            <p>Состав: свинина, говядина, капуста белокочанная отварная, рис отварной, лук, яйцо курниное, соль, перец черный
                                 молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
@@ -1242,20 +1408,20 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
                     <div data-id="17" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/farsh/farsh2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Перцы Говядина и Свинина</h6>
-                            <p>Состав: говядина, свинина, лук, перец болгарский, отварной рис, яйцо, соль, перец черный
+                            <h6>Перец фаршированный (свинина/говядина)</h6>
+                            <p>Состав: свинина, говядина, перец грунтовой болгарский, рис отварной, лук, яйцо куриное, соль, перец черный
                                 молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
-                                <p class="catalog-item__price">315 р.</p>
+                                <p class="catalog-item__price">330 р.</p>
                                 <button class="cart cart--product">
                                     Добавить
                                     <span class="heart"></span>
@@ -1268,7 +1434,7 @@
         </div>
 
         <div class="catalog-block" data-id="6">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1307,7 +1473,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1346,7 +1512,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
                 <div class="slider__item">
                     <div data-id="18" class="catalog-item" @click="addProductToCart">
@@ -1355,7 +1521,7 @@
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Сырники</h6>
-                            <p>Состав: творог 5%, яйцо, сахар, соль, крупа манная, мука, разрыхлитель.</p>
+                            <p>Состав: творог 5%, яичный желток, сахарный песок, крупа манная, мука пшеничная в/с, разрыхлитель, соль.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">220 р.</p>
@@ -1371,7 +1537,7 @@
         </div>
 
         <div class="catalog-block" data-id="7">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1410,7 +1576,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1449,17 +1615,18 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="product-slider slider">
-        
+
                 <div  class="slider__item">
                     <div data-id="22" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni5.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Курзе</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук, соль, перец черный молотый.</p>
+                            <h6>Курзе (говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук, соль, перец черный
+                                молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">350 р.</p>
@@ -1471,55 +1638,74 @@
                         </div>
                     </div>
                 </div>
-        
-                <div  class="slider__item">
+
+                <!--<div  class="slider__item">
                     <div data-id="2" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/pelmeni/pelmeni2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Пельмени Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук, соль, перец черный молотый.</p>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук, соль, перец черный молотый.</p>
                             <span>450 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">350 р.</p>
-                                <button class="cart cart--product">
+                                <button class="cart cart&#45;&#45;product">
                                     Добавить
                                     <span class="heart"></span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-        
-                <div class="slider__item">
-                    <div data-id="13" class="catalog-item" @click="addProductToCart">
-                        <div class="catalog-item__pic">
-                            <img src="Content/images/products/manti/manti2.jpg" alt="product">
-                        </div>
-                        <div class="catalog-item__desc">
-                            <h6>Манты Баранина</h6>
-                            <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
-                            <span>500 г.</span>
-                            <div class="catalog-cell">
-                                <p class="catalog-item__price">435 р.</p>
-                                <button class="cart cart--product">
-                                    Добавить
-                                    <span class="heart"></span>
-                                </button>
-                            </div>
+                </div>-->
+
+                <!-- <div class="slider__item">
+                     <div data-id="13" class="catalog-item" @click="addProductToCart">
+                         <div class="catalog-item__pic">
+                             <img src="Content/images/products/manti/manti2.jpg" alt="product">
+                         </div>
+                         <div class="catalog-item__desc">
+                             <h6>Манты Баранина</h6>
+                             <p>Состав: тесто, баранина, лук рубленный, соль, перец черный молотый, зира.</p>
+                             <span>500 г.</span>
+                             <div class="catalog-cell">
+                                 <p class="catalog-item__price">435 р.</p>
+                                 <button class="cart cart&#45;&#45;product">
+                                     Добавить
+                                     <span class="heart"></span>
+                                 </button>
+                             </div>
+                         </div>
+                     </div>
+                 </div>-->
+
+                <div data-id="21" class="catalog-item" @click="addProductToCart">
+                    <div class="catalog-item__pic">
+                        <img src="Content/images/products/manti/manti5.jpg" alt="product">
+                    </div>
+                    <div class="catalog-item__desc">
+                        <h6>Манты (говядина)</h6>
+                        <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук рубленный, соль, перец черный
+                            молотый.</p>
+                        <span>500 г.</span>
+                        <div class="catalog-cell">
+                            <p class="catalog-item__price">415 р.</p>
+                            <button class="cart cart--product">
+                                Добавить
+                                <span class="heart"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="slider__item">
                     <div data-id="14" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/manti/manti3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Манты Баранина и Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), баранина, говядина, лук рубленный, соль, перец черный
+                            <h6>Манты (говядина/баранина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, баранина, курдючий жир, лук рубленный, соль, перец черный
                                 молотый, зира.</p>
                             <span>500 г.</span>
                             <div class="catalog-cell">
@@ -1532,16 +1718,16 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="slider__item">
                     <div data-id="19" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/hinkali/hinkali1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Хинкали Говядина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
-                            <span>480 г.</span>
+                            <h6>Хинкали (говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
+                            <span>580 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">420 р.</p>
                                 <button class="cart cart--product">
@@ -1552,16 +1738,16 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="slider__item">
                     <div data-id="20" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
                             <img src="Content/images/products/hinkali/hinkali2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
-                            <h6>Хинкали Говядина и Баранина</h6>
-                            <p>Состав: тесто (мука в/с, соль, яйцо, вода), говядина, баранина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
-                            <span>480 г.</span>
+                            <h6>Хинкали (говядина/баранина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, баранина, курдючий жир, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
+                            <span>580 г.</span>
                             <div class="catalog-cell">
                                 <p class="catalog-item__price">450 р.</p>
                                 <button class="cart cart--product">
@@ -1572,12 +1758,12 @@
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div>
 
         <div class="catalog-block" data-id="8">
-        
+
             <div class="arrow-next">
                 <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1616,7 +1802,7 @@
         </g>
         </svg>
             </div>
-        
+
             <div class="arrow-prev">
                 <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
@@ -1655,12 +1841,157 @@
         </g>
         </svg>
             </div>
-        
+
+            <div class="product-slider slider">
+
+                <div class="slider__item">
+                    <div data-id="19" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/hinkali/hinkali1.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Хинкали (говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
+                            <span>580 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">420 р.</p>
+                                <button class="cart cart--product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider__item">
+                    <div data-id="20" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/hinkali/hinkali2.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Хинкали (говядина/баранина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), говядина, баранина, курдючий жир, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели.</p>
+                            <span>580 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">450 р.</p>
+                                <button class="cart cart--product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider__item">
+                    <div data-id="23" class="catalog-item" @click="addProductToCart">
+                        <div class="catalog-item__pic">
+                            <img src="Content/images/products/hinkali/hinkali3.jpg" alt="product">
+                        </div>
+                        <div class="catalog-item__desc">
+                            <h6>Хинкали (свинина/говядина)</h6>
+                            <p>Состав: тесто (мука пшеничная в/с, вода питьевая, соль, яйцо куриное, масло растительное), свинина, говядина, лук рубленный, соль, перец черный молотый, кинза, зира, хмели-сунели</p>
+                            <span>580 г.</span>
+                            <div class="catalog-cell">
+                                <p class="catalog-item__price">400 р.</p>
+                                <button class="cart cart--product">
+                                    Добавить
+                                    <span class="heart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="catalog-block" data-id="9">
+
+            <div class="arrow-next">
+                <svg version="1.1" id="arrow-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+	C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+	c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+</svg>
+            </div>
+
+            <div class="arrow-prev">
+                <svg version="1.1" id="arrow-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.563,30.826l-22,15
+	C23.394,45.941,23.197,46,23,46c-0.16,0-0.321-0.038-0.467-0.116C22.205,45.711,22,45.371,22,45V15c0-0.371,0.205-0.711,0.533-0.884
+	c0.328-0.174,0.724-0.15,1.031,0.058l22,15C45.836,29.36,46,29.669,46,30S45.836,30.64,45.563,30.826z"/>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+</svg>
+            </div>
+
             <div class="product-slider slider">
                 <div class="slider__item">
-                    <div data-id="81" class="catalog-item" @click="addProductToCart">
+                    <div data-id="29" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
-                            <img src="http://dummyimage.com/353x355.png/99cccc" alt="product">
+                            <img src="Content/images/products/blinchiki/blinchiki1.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Блинчики меню 1</h6>
@@ -1676,12 +2007,12 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
-                    <div data-id="82" class="catalog-item" @click="addProductToCart">
+                    <div data-id="30" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
-                            <img src="http://dummyimage.com/353x355.png/99cccc" alt="product">
+                            <img src="Content/images/products/blinchiki/blinchiki2.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Блинчики меню 2</h6>
@@ -1697,12 +2028,12 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="slider__item">
-                    <div data-id="83" class="catalog-item" @click="addProductToCart">
+                    <div data-id="31" class="catalog-item" @click="addProductToCart">
                         <div class="catalog-item__pic">
-                            <img src="http://dummyimage.com/353x355.png/99cccc" alt="product">
+                            <img src="Content/images/products/blinchiki/blinchiki3.jpg" alt="product">
                         </div>
                         <div class="catalog-item__desc">
                             <h6>Блинчики меню 3</h6>
@@ -1718,41 +2049,42 @@
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div>
 
     </section>
 
     <section class="delivery">
-    
+
         <h2>Условия доставки</h2>
-    
+
         <div class="delivery-block">
-    
+
             <div class="delivery-pic">
                 <img src="Content/images/svg/delivery.svg" alt="">
             </div>
-    
+
             <div class="delivery-text">
                 <p>Доставка осуществляется курьером при покупке товара <b>от 1500</b> руб.</p>
-                <p>Стоимость доставки по г. Москва составляет <b>300</b> руб.</p>
-                <p>Стоимость доставки за пределы МКАД уточняйте <b>по телефону или у службы тех. поддержки в мессенджере WhatsApp</b>.</p>
+                <p>Стоимость доставки по г. Москва в пределах МКАД составляет <b>300</b> руб.</p>
+                <p>При покупке товара от 2500 руб. доставка <b>БЕСПЛАТНАЯ.</b></p>
+                <p>Стоимость доставки за пределы МКАД уточняйте по телефону или у службы поддержки в месенджере WhatsApp.</p>
                 <p>Оплата принимается курьером <b>наличными</b> или <b>переводом на банковскую карту</b>.</p>
             </div>
-    
+
         </div>
-    
+
     </section>
 
     <section class="order">
-    
+
         <h2>Оформление заказа</h2>
-    
+
         <div class="order-block">
-    
+
             <div v-cloak class="order-list">
-    
+
                 <div class="order-item" v-for="item in currentOrder" :key="item.id">
                     <p class="order__name" v-cloak>{{item.title}}</p>
                     <p class="order__price" v-cloak>{{item.price}} р.</p>
@@ -1762,15 +2094,19 @@
                         <div class="order__btn" @click="increaseNumberProductInOrder(item.id)">+</div>
                     </div>
                 </div>
-    
+
+                <div v-cloak v-if="promoError" class="promo-error">
+                    К сожалению, товар "{{promoErrorTitle}}" не входит в стоимость, необходимую для заказа продукции и её доставки.
+                </div>
+
                 <div class="order-total" v-if="currentOrder.length">
                     <p>Итого:</p><span v-cloak>{{amountOrder}} р.</span>
                 </div>
-    
+
             </div>
-    
+
             <div class="order-form">
-    
+
                 <form class="form" action="send.php" method="POST">
                     <p v-cloak v-if="!errors" class="order-form__title">Ваши данные</p>
                     <p v-cloak v-else class="order-form__title">
@@ -1782,9 +2118,10 @@
                     <p class="error" v-cloak v-if="phoneError">Укажите Ваш телефон.</p>
                     <input v-model.trim="phone" type="text" name="phone" placeholder="Телефон">
                     <p class="error" v-cloak v-if="addressError">Укажите Ваш адрес.</p>
-                    <textarea v-model.trim="address" name="address" placeholder="Адрес"></textarea>
+                    <textarea v-model.trim="address" name="address" placeholder="Город, Улица, Дом, Подъезд, Этаж, Квартира"></textarea>
                     <input @click="checkCheckbox" id="check1" type="checkbox" v-model="check1"><label for="check1">Наличными</label>
                     <input @click="checkCheckbox" id="check2" type="checkbox" v-model="check2"><label for="check2">Переводом на банковскую карту</label>
+
                     <div class="btn" @click="submitForm">
                         <svg width="285" height="123" viewBox="0 0 285 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.126778 28.2954C0.126783 -25.3394 60.7811 17.2861 145.092 17.2861C229.402 17.2861 284.122 -26.1863 284.122 27.4485C284.122 81.0834 228.91 122.756 144.6 122.756C60.2893 122.756 0.126774 81.9302 0.126778 28.2954Z" fill="#EF0031"/>
@@ -1792,11 +2129,11 @@
                         <div class="btn__text">Оформить заказ</div>
                     </div>
                 </form>
-    
+
             </div>
-    
+
         </div>
-    
+
     </section>
 
 </main>
@@ -1807,14 +2144,10 @@
         <div class="footer-item">
             <h6>Контакты</h6>
             <a href="tel:89771677284">+7 977 167 72 84</a>
-            <a href="mailto:mamapelmeni@yandex.ru">mamapelmeni@yandex.ru</a>
+            <a href="mailto:mamapelmeni@mail.ru">mamapelmeni@mail.ru</a>
             <a href="https://www.instagram.com/mamapelmeni/" class="insta">
                 <img src="Content/images/svg/insta.svg" alt="insta">
             </a>
-        </div>
-        <div class="footer-item">
-            <h6>Адрес</h6>
-            <p>Москва и Московская область</p>
         </div>
         <div class="footer-item">
             <h6>Сотрудничество</h6>
@@ -1827,7 +2160,7 @@
 <script src="Content/libs/jquery.min.js"></script>
 <script src="Content/libs/slick/slick.min.js"></script>
 <script src="Content/libs/vue.js"></script>
-<script src="Scripts/init.js"></script>
+<script src="Scripts/init.ver3.js"></script>
 
 <div class="whatsapp-btn">
     <a href="https://wa.me/79771677284?text=Здравствуйте! У меня есть вопросы по товарам Мамины пельмени." target="_blank" rel="noreferrer" class="g-whatsapp">
