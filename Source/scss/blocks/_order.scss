@@ -84,11 +84,44 @@
     form {
       display: contents;
     }
-    .form-item {
+    .form-action {
       display: flex;
-      align-items: center;
-      label {
-        width: 100%;
+    }
+    .form-block {
+      margin-bottom: 20px;
+      p {
+        font-size: 24px;
+        margin-left: 52px;
+      }
+    }
+    .form-item {
+      input {
+        max-width: 230px;
+      }
+    }
+    .form-time {
+      margin-left: 40px;
+      &__item {
+        margin-bottom: 10px;
+        color: black;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        min-height: 55px;
+        transition: .5s;
+        &--active {
+          background: #ef0031;
+          color: white;
+          transition: .5s;
+        }
+        &:nth-last-of-type(1){
+          margin-bottom: 0;
+        }
       }
     }
     &__title {

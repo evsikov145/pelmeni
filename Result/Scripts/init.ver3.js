@@ -372,8 +372,6 @@ window.onload = function () {
         this.check2 = !this.check2;
       },
       initDatePicker: function initDatePicker() {
-        var _this3 = this;
-
         var date = new Date();
         var dateDelivery;
         var disabledDays = [0];
@@ -402,10 +400,10 @@ window.onload = function () {
           }
         }).data('datepicker');
         this.datePicker.selectDate(dateDelivery);
-        $('#datepicker').on('input', function (e) {
-          _this3.date = e.target.value;
-          console.log(_this3.date);
-        });
+      },
+      updateTimeDelivery: function updateTimeDelivery(e) {
+        this.time = e.target.textContent;
+        e.target.classList.toggle('form-time__item--active');
       }
     },
     mounted: function mounted() {

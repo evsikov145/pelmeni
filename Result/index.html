@@ -2120,9 +2120,19 @@
                     <p class="error" v-cloak v-if="addressError">Укажите Ваш адрес.</p>
                     <textarea v-model.trim="address" name="address" placeholder="Город, Улица, Дом, Подъезд, Этаж, Квартира"></textarea>
 
-                    <div class="form-item">
-                        <label for="datepicker">Дата доставки:</label>
-                        <input v-model="date" id="datepicker" type="text">
+                    <div class="form-block">
+                        <p>Укажите дату доставки и время</p>
+                        <div class="form-action">
+                            <div class="form-item">
+                                <input v-model="date" id="datepicker" type="text">
+                            </div>
+                            <div class="form-time">
+                                <div class="form-time__item" @click="updateTimeDelivery">с 10:00 до 13:00</div>
+                                <div class="form-time__item" @click="updateTimeDelivery">с 13:00 до 16:00</div>
+                                <div class="form-time__item" @click="updateTimeDelivery">с 16:00 до 20:00</div>
+                            </div>
+                        </div>
+
                     </div>
 
 

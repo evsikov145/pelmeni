@@ -386,11 +386,10 @@ window.onload = function () {
                 }).data('datepicker')
 
                 this.datePicker.selectDate(dateDelivery)
-
-                $('#datepicker').on('input', (e)=> {
-                    this.date = e.target.value
-                    console.log(this.date)
-                })
+            },
+            updateTimeDelivery(e){
+                this.time = e.target.textContent
+                e.target.classList.toggle('form-time__item--active')
             }
         },
         mounted: function mounted() {
