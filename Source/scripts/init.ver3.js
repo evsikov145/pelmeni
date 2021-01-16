@@ -1,4 +1,3 @@
-"use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -37,7 +36,10 @@ window.onload = function () {
             check1: true,
             check2: false,
             promoError: false,
-            promoErrorTitle: ''
+            promoErrorTitle: '',
+            datePicker: {},
+            date: '',
+            time: ''
         },
         methods: {
             getHeightPromoSection: function getHeightPromoSection() {
@@ -353,12 +355,49 @@ window.onload = function () {
             checkCheckbox: function checkCheckbox() {
                 this.check1 = !this.check1;
                 this.check2 = !this.check2;
+            },
+            initDatePicker(){
+                let date = new Date()
+                let dateDelivery;
+                let disabledDays = [0]
+                if(date.getHours() >= 10){
+                    dateDelivery = date
+                    let currentDate = dateDelivery.getDate()
+                    let currentDay = dateDelivery.getDay()
+                    currentDay !== 6 ? dateDelivery.setDate(++currentDate) : dateDelivery.setDate(currentDate + 2)
+
+                }else {
+                    dateDelivery = date
+                }
+
+                this.datePicker = $('#datepicker').datepicker({
+                    minDate: dateDelivery,
+                    weekends: [0],
+                    autoClose: true,
+                    onRenderCell: function (date, cellType) {
+                        if (cellType == 'day') {
+                            var day = date.getDay(),
+                                isDisabled = disabledDays.indexOf(day) != -1;
+                            return {
+                                disabled: isDisabled
+                            }
+                        }
+                    }
+                }).data('datepicker')
+
+                this.datePicker.selectDate(dateDelivery)
+
+                $('#datepicker').on('input', (e)=> {
+                    this.date = e.target.value
+                    console.log(this.date)
+                })
             }
         },
         mounted: function mounted() {
             var _this2 = this;
 
             this.initEventsScroll();
+            this.initDatePicker();
             this.getHeightPromoSection();
             window.addEventListener('resize', function () {
                 _this2.getHeightPromoSection();

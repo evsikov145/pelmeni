@@ -84,6 +84,13 @@
     form {
       display: contents;
     }
+    .form-item {
+      display: flex;
+      align-items: center;
+      label {
+        width: 100%;
+      }
+    }
     &__title {
       font-size: 30px;
       margin-bottom: 22px;
