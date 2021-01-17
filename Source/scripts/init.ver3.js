@@ -39,7 +39,8 @@ window.onload = function () {
             promoErrorTitle: '',
             datePicker: {},
             date: '',
-            time: ''
+            time: '',
+            dateError: false
         },
         methods: {
             getHeightPromoSection: function getHeightPromoSection() {
@@ -262,6 +263,7 @@ window.onload = function () {
                 this.phoneError = false;
                 this.addressError = false;
                 this.orderError = false;
+                this.dateError = false;
                 this.errors = false;
 
                 if (!this.currentOrder.length) {
@@ -314,17 +316,23 @@ window.onload = function () {
                     this.promoError = false;
                 }
 
+                this.date = $('#datepicker').val()
+
+                if(!this.time){
+                    this.errors = true;
+                    this.dateError = true;
+                }
+
                 if (!this.errors) {
                     this.currentOrder.forEach(function (item) {
                         delete item['id'];
                     });
-                    /*let order = this.currentOrder.map(item => {
-                         return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
-                     })*/
 
                     var formData = new FormData(form);
                     formData.append('message', JSON.stringify(this.currentOrder));
                     formData.append('sum', String(this.amountOrder));
+                    formData.append('date', String(this.date))
+                    formData.append('time', String(this.time))
 
                     if (this.check1) {
                         formData.append('payment', 'Наличными');
@@ -386,10 +394,13 @@ window.onload = function () {
                 }).data('datepicker')
 
                 this.datePicker.selectDate(dateDelivery)
+
+                this.date = $('#datepicker').val()
             },
             updateTimeDelivery(e){
                 this.time = e.target.textContent
-                e.target.classList.toggle('form-time__item--active')
+                $('.form-time__item').removeClass('form-time__item--active')
+                e.target.classList.add('form-time__item--active')
             }
         },
         mounted: function mounted() {

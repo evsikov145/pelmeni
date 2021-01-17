@@ -2121,7 +2121,8 @@
                     <textarea v-model.trim="address" name="address" placeholder="Город, Улица, Дом, Подъезд, Этаж, Квартира"></textarea>
 
                     <div class="form-block">
-                        <p>Укажите дату доставки и время</p>
+                        <p v-cloak v-if="dateError" class="error" style="font-size: 20px;">Укажите время доставки.</p>
+                        <p v-else>Выберите дату доставки и время</p>
                         <div class="form-action">
                             <div class="form-item">
                                 <input v-model="date" id="datepicker" type="text">
