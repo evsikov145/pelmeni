@@ -1,12 +1,26 @@
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
 
 window.onload = function () {
   var app = new Vue({
@@ -35,7 +49,13 @@ window.onload = function () {
       orderError: false,
       orderErrorText: '',
       check1: true,
-      check2: false
+      check2: false,
+      promoError: false,
+      promoErrorTitle: '',
+      datePicker: {},
+      date: '',
+      time: '',
+      dateError: false
     },
     methods: {
       getHeightPromoSection: function getHeightPromoSection() {
@@ -160,6 +180,12 @@ window.onload = function () {
         this.numberInCart++;
         var item = this.getCatalogItem(event.target);
         var id = item.getAttribute('data-id');
+
+        if (id === '25') {
+          this.promoError = true;
+          this.promoErrorTitle = item.querySelector('h6').textContent;
+        }
+
         var repeat = this.currentOrder.find(function (item) {
           return item.id === id;
         });
@@ -252,6 +278,7 @@ window.onload = function () {
         this.phoneError = false;
         this.addressError = false;
         this.orderError = false;
+        this.dateError = false;
         this.errors = false;
 
         if (!this.currentOrder.length) {
@@ -285,17 +312,41 @@ window.onload = function () {
           this.orderError = true;
         }
 
+        var promoItem = this.currentOrder.find(function (item) {
+          return item.id === '25';
+        });
+
+        if (promoItem) {
+          var _sum = this.amountOrder - promoItem.price;
+
+          if (_sum >= 1500) {
+            this.promoError = false;
+          } else {
+            _sum = 1500 - this.amountOrder + promoItem.price;
+            this.errors = true;
+            this.orderErrorText = "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u043E\u0442 1500 \u0440\u0443\u0431\u043B\u0435\u0439. \u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 ".concat(_sum, " \u0440\u0443\u0431\u043B\u0435\u0439.");
+            this.orderError = true;
+          }
+        } else {
+          this.promoError = false;
+        }
+
+        this.date = $('#datepicker').val();
+
+        if (!this.time) {
+          this.errors = true;
+          this.dateError = true;
+        }
+
         if (!this.errors) {
           this.currentOrder.forEach(function (item) {
             delete item['id'];
           });
-          /*let order = this.currentOrder.map(item => {
-               return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
-           })*/
-
           var formData = new FormData(form);
           formData.append('message', JSON.stringify(this.currentOrder));
           formData.append('sum', String(this.amountOrder));
+          formData.append('date', String(this.date));
+          formData.append('time', String(this.time));
 
           if (this.check1) {
             formData.append('payment', 'Наличными');
@@ -326,16 +377,54 @@ window.onload = function () {
       checkCheckbox: function checkCheckbox() {
         this.check1 = !this.check1;
         this.check2 = !this.check2;
+      },
+      initDatePicker: function initDatePicker() {
+        var date = new Date();
+        var dateDelivery;
+        var disabledDays = [0];
+
+        if (date.getHours() >= 10) {
+          dateDelivery = date;
+          var currentDate = dateDelivery.getDate();
+          var currentDay = dateDelivery.getDay();
+          currentDay !== 6 ? dateDelivery.setDate(++currentDate) : dateDelivery.setDate(currentDate + 2);
+        } else {
+          dateDelivery = date;
+        }
+
+        this.datePicker = $('#datepicker').datepicker({
+          minDate: dateDelivery,
+          weekends: [0],
+          autoClose: true,
+          onRenderCell: function onRenderCell(date, cellType) {
+            if (cellType == 'day') {
+              var day = date.getDay(),
+                  isDisabled = disabledDays.indexOf(day) != -1;
+              return {
+                disabled: isDisabled
+              };
+            }
+          }
+        }).data('datepicker');
+        this.datePicker.selectDate(dateDelivery);
+        this.date = $('#datepicker').val();
+      },
+      updateTimeDelivery: function updateTimeDelivery(e) {
+        this.time = e.target.textContent;
+        $('.form-time__item').removeClass('form-time__item--active');
+        e.target.classList.add('form-time__item--active');
       }
     },
     mounted: function mounted() {
-      this.initEventsScroll();
-      this.getHeightPromoSection();
-      /* window.addEventListener('resize', () => {
-           this.getHeightPromoSection()
-       })*/
-      //window.addEventListener('scroll', this.fixedHeader);
+      var _this2 = this;
 
+      this.initEventsScroll();
+      this.initDatePicker();
+      this.getHeightPromoSection();
+      window.addEventListener('resize', function () {
+        _this2.getHeightPromoSection();
+      });
+      window.addEventListener('scroll', this.fixedHeader);
       this.categoriesMenu = document.querySelector('.menu-block');
       this.sectionMenu = document.querySelector('.menu');
       this.productsBlocks = this.sectionMenu.querySelectorAll('.catalog-block');

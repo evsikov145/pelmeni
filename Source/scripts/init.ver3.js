@@ -1,5 +1,13 @@
-window.onload = () => {
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+window.onload = function () {
     var app = new Vue({
         el: '#main',
         data: {
@@ -26,199 +34,240 @@ window.onload = () => {
             orderError: false,
             orderErrorText: '',
             check1: true,
-            check2: false
+            check2: false,
+            promoError: false,
+            promoErrorTitle: '',
+            datePicker: {},
+            date: '',
+            time: '',
+            dateError: false
         },
         methods: {
-            getHeightPromoSection(){
-                const promoSection = document.querySelector('.promo');
+            getHeightPromoSection: function getHeightPromoSection() {
+                var promoSection = document.querySelector('.promo');
                 this.heightPromoSection = promoSection.clientHeight;
             },
-            fixedHeader(){
-                const header = document.querySelector('.header');
+            fixedHeader: function fixedHeader() {
+                var header = document.querySelector('.header');
 
-                if (window.pageYOffset > this.heightPromoSection - 200){
+                if (window.pageYOffset > this.heightPromoSection - 200) {
                     header.classList.add('header--fixed');
-                }else {
-                    if(header.classList.contains('header--fixed')){
+                } else {
+                    if (header.classList.contains('header--fixed')) {
                         header.classList.remove('header--fixed');
                     }
                 }
             },
-            initEventsClick(arr, section){
-                if(arr.length > 1){
-                    arr.forEach(item => {
-                        item.addEventListener('click', (event) => {
+            initEventsClick: function initEventsClick(arr, section) {
+                var _this = this;
+
+                if (arr.length > 1) {
+                    arr.forEach(function (item) {
+                        item.addEventListener('click', function (event) {
                             event.preventDefault();
-                            if(document.querySelector('body').classList.contains('menu-active')){
-                                document.querySelector('body').classList.remove('menu-active')
+
+                            if (document.querySelector('body').classList.contains('menu-active')) {
+                                document.querySelector('body').classList.remove('menu-active');
                             }
-                            this.scrollInSection(section)
-                        })
-                    })
-                }else {
-                    arr[0].addEventListener('click', (event) => {
+
+                            _this.scrollInSection(section);
+                        });
+                    });
+                } else {
+                    arr[0].addEventListener('click', function (event) {
                         event.preventDefault();
-                        if(document.querySelector('body').classList.contains('menu-active')){
-                            document.querySelector('body').classList.remove('menu-active')
+
+                        if (document.querySelector('body').classList.contains('menu-active')) {
+                            document.querySelector('body').classList.remove('menu-active');
                         }
-                        this.scrollInSection(section)
-                    })
+
+                        _this.scrollInSection(section);
+                    });
                 }
-
             },
-            initEventsScroll(){
-
-                const aboutLink = document.querySelectorAll('.link-about');
-                const sectionWhy = document.querySelector('.why');
+            initEventsScroll: function initEventsScroll() {
+                var aboutLink = document.querySelectorAll('.link-about');
+                var sectionWhy = document.querySelector('.why');
                 this.initEventsClick(aboutLink, sectionWhy);
-
-                const menuLink = document.querySelectorAll('.link-menu');
-                const sectionMenu = document.querySelector('.menu');
+                var menuLink = document.querySelectorAll('.link-menu');
+                var sectionMenu = document.querySelector('.menu');
                 this.initEventsClick(menuLink, sectionMenu);
-
-                const deliveryLink = document.querySelectorAll('.link-delivery');
-                const sectionDelivery = document.querySelector('.delivery');
+                var deliveryLink = document.querySelectorAll('.link-delivery');
+                var sectionDelivery = document.querySelector('.delivery');
                 this.initEventsClick(deliveryLink, sectionDelivery);
-
-                const contactsLink = document.querySelectorAll('.link-contacts');
-                const sectionFooter = document.querySelector('.footer');
+                var contactsLink = document.querySelectorAll('.link-contacts');
+                var sectionFooter = document.querySelector('.footer');
                 this.initEventsClick(contactsLink, sectionFooter);
-
-                const orderLink = document.querySelectorAll('.link-order');
-                const sectionOrder = document.querySelector('.order');
+                var orderLink = document.querySelectorAll('.link-order');
+                var sectionOrder = document.querySelector('.order');
                 this.initEventsClick(orderLink, sectionOrder);
             },
-            getCoords(elem) {
-                let box = elem.getBoundingClientRect();
+            getCoords: function getCoords(elem) {
+                var box = elem.getBoundingClientRect();
                 return box.top + pageYOffset;
             },
-            scrollInSection(section){
-                const top = this.getCoords(section);
+            scrollInSection: function scrollInSection(section) {
+                var top = this.getCoords(section);
                 window.scrollTo({
-                    top: top - 100, // height fixed header
+                    top: top - 100,
+                    // height fixed header
                     behavior: 'smooth'
                 });
             },
-            toggleAdaptiveMenu(){
+            toggleAdaptiveMenu: function toggleAdaptiveMenu() {
                 document.querySelector('body').classList.toggle('menu-active');
             },
-            openProducts(event){
-                const title = event.target.textContent;
-                let currentCategory = event.target.parentElement;
-                if(!currentCategory.hasAttribute('data-id')){
+            openProducts: function openProducts(event) {
+                var title = event.target.textContent;
+                var currentCategory = event.target.parentElement;
+
+                if (!currentCategory.hasAttribute('data-id')) {
                     currentCategory = currentCategory.parentElement;
                 }
-                const currentCategoryId = currentCategory.getAttribute('data-id');
-                this.currentProductsBlock = this.productsBlocks.filter(item => {
-                    if(item.getAttribute('data-id') === currentCategoryId){
+
+                var currentCategoryId = currentCategory.getAttribute('data-id');
+                this.currentProductsBlock = this.productsBlocks.filter(function (item) {
+                    if (item.getAttribute('data-id') === currentCategoryId) {
                         return item;
                     }
-                })
-                if(this.currentProductsBlock.length){
+                });
+
+                if (this.currentProductsBlock.length) {
                     this.sectionMenuTitle = title;
                     this.categoriesMenu.style.display = 'none';
                     this.currentProductsBlock[0].style.height = 'auto';
-                    const initSlider = this.currentProductsBlock[0].querySelector('.slick-initialized');
-                    if(initSlider){
-                        this.currentProductsBlock[0].classList.add('catalog-block--active')
+                    var initSlider = this.currentProductsBlock[0].querySelector('.slick-initialized');
+
+                    if (initSlider) {
+                        this.currentProductsBlock[0].classList.add('catalog-block--active');
                     }
-                    if(window.innerWidth < 1615){
-                        this.currentProductsBlock[0].classList.add('catalog-block--active')
+
+                    if (window.innerWidth < 1615) {
+                        this.currentProductsBlock[0].classList.add('catalog-block--active');
                     }
+
                     this.sectionMenu.classList.add('menu--active');
                     this.scrollInSection(this.sectionMenu);
                 }
             },
-            closeProductsBlock(){
+            closeProductsBlock: function closeProductsBlock() {
                 this.sectionMenuTitle = 'Наше меню';
                 this.categoriesMenu.style.display = 'flex';
                 this.currentProductsBlock[0].style.height = '0';
 
-                if(this.currentProductsBlock[0].classList.contains('catalog-block--active')){
-                    this.currentProductsBlock[0].classList.remove('catalog-block--active')
+                if (this.currentProductsBlock[0].classList.contains('catalog-block--active')) {
+                    this.currentProductsBlock[0].classList.remove('catalog-block--active');
                 }
 
                 this.sectionMenu.classList.remove('menu--active');
             },
-            addProductToCart(event){
+            addProductToCart: function addProductToCart(event) {
                 this.numberInCart++;
-                const item = this.getCatalogItem(event.target);
-                const id = item.getAttribute('data-id')
-                const repeat = this.currentOrder.find(item => item.id === id);
-                if(typeof repeat !== 'undefined'){
+                var item = this.getCatalogItem(event.target);
+                var id = item.getAttribute('data-id');
+
+                if (id === '25') {
+                    this.promoError = true;
+                    this.promoErrorTitle = item.querySelector('h6').textContent;
+                }
+
+                var repeat = this.currentOrder.find(function (item) {
+                    return item.id === id;
+                });
+
+                if (typeof repeat !== 'undefined') {
                     item.classList.add('catalog-item--add');
                     repeat.number++;
                     repeat.price = this.checkPrice(id, repeat.number);
-                }else {
+                } else {
                     item.classList.add('catalog-item--add');
-                    const title = item.querySelector('h6').textContent;
-                    let price = item.querySelector('.catalog-item__price').textContent;
+                    var title = item.querySelector('h6').textContent;
+                    var price = item.querySelector('.catalog-item__price').textContent;
                     price = Number(price.split(' ')[0]);
-                    const number = 1;
-                    const orderItem = {id, title, price, number};
+                    var number = 1;
+                    var orderItem = {
+                        id: id,
+                        title: title,
+                        price: price,
+                        number: number
+                    };
                     this.currentOrder.push(orderItem);
-                    const copyItem = JSON.parse(JSON.stringify(orderItem));
+                    var copyItem = JSON.parse(JSON.stringify(orderItem));
                     this.listProduct.push(copyItem);
-                    this.catalogItems.forEach(item => {
-                        const idItem = item.getAttribute('data-id');
-                        if(idItem === id){
+                    this.catalogItems.forEach(function (item) {
+                        var idItem = item.getAttribute('data-id');
+
+                        if (idItem === id) {
                             item.classList.add('catalog-item--add');
                         }
-                    })
+                    });
                 }
+
                 this.ordering();
             },
-            getCatalogItem(target){
-                if(!target.hasAttribute('data-id')){
+            getCatalogItem: function getCatalogItem(target) {
+                if (!target.hasAttribute('data-id')) {
                     target = target.parentElement;
                     return this.getCatalogItem(target);
-                }else {
+                } else {
                     return target;
                 }
             },
-            ordering(){
-                this.amountOrder = this.currentOrder.reduce((sum, item) => sum + item.price, 0);
+            ordering: function ordering() {
+                this.amountOrder = this.currentOrder.reduce(function (sum, item) {
+                    return sum + item.price;
+                }, 0);
             },
-            increaseNumberProductInOrder(id){
-                const product = this.currentOrder.find(item => item.id === id);
+            increaseNumberProductInOrder: function increaseNumberProductInOrder(id) {
+                var product = this.currentOrder.find(function (item) {
+                    return item.id === id;
+                });
                 product.number++;
                 this.numberInCart++;
                 product.price = this.checkPrice(id, product.number);
                 this.ordering();
             },
-            reduceNumberProductInOrder(id){
-                const product = this.currentOrder.find(item => item.id === id);
+            reduceNumberProductInOrder: function reduceNumberProductInOrder(id) {
+                var product = this.currentOrder.find(function (item) {
+                    return item.id === id;
+                });
                 product.number--;
                 this.numberInCart--;
                 product.price = this.checkPrice(id, product.number);
-                if(product.number === 0){
-                    this.catalogItems.forEach(item => {
-                        const id = item.getAttribute('data-id');
-                        if(id === product.id){
+
+                if (product.number === 0) {
+                    this.catalogItems.forEach(function (item) {
+                        var id = item.getAttribute('data-id');
+
+                        if (id === product.id) {
                             item.classList.remove('catalog-item--add');
                         }
-                    })
-                    this.currentOrder = this.currentOrder.filter(item => item.id !== id);
+                    });
+                    this.currentOrder = this.currentOrder.filter(function (item) {
+                        return item.id !== id;
+                    });
                 }
+
                 this.ordering();
             },
-            checkPrice(id, number){
-                const product = this.listProduct.find(item => item.id === id);
+            checkPrice: function checkPrice(id, number) {
+                var product = this.listProduct.find(function (item) {
+                    return item.id === id;
+                });
                 return product.price * number;
             },
-            submitForm: function (event) {
-
-                const form = this.searchForm(event.target);
-
+            submitForm: function submitForm(event) {
+                var form = this.searchForm(event.target);
                 form.className = 'form';
                 this.nameError = false;
                 this.phoneError = false;
                 this.addressError = false;
                 this.orderError = false;
+                this.dateError = false;
                 this.errors = false;
 
                 if (!this.currentOrder.length) {
-                    this.orderErrorText = `В заказе отсутствует товар.`;
+                    this.orderErrorText = "\u0412 \u0437\u0430\u043A\u0430\u0437\u0435 \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0442\u043E\u0432\u0430\u0440.";
                     this.errors = true;
                     this.orderError = true;
                 }
@@ -228,39 +277,62 @@ window.onload = () => {
                     this.errors = true;
                     form.classList.add('form--error_name');
                 }
+
                 if (this.address === '') {
                     this.addressError = true;
                     this.errors = true;
                     form.classList.add('form--error_address');
                 }
+
                 if (this.phone === '') {
                     this.phoneError = true;
                     this.errors = true;
                     form.classList.add('form--error_phone');
                 }
 
-                if(this.amountOrder < 1500 && !this.orderError){
+                if (this.amountOrder < 1500 && !this.orderError) {
                     this.errors = true;
-                    const sum = 1500 - this.amountOrder;
-                    this.orderErrorText = `Заказ должен быть от 1500 рублей. Не хватает ${sum} рублей.`;
+                    var sum = 1500 - this.amountOrder;
+                    this.orderErrorText = "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u043E\u0442 1500 \u0440\u0443\u0431\u043B\u0435\u0439. \u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 ".concat(sum, " \u0440\u0443\u0431\u043B\u0435\u0439.");
                     this.orderError = true;
                 }
 
+                var promoItem = this.currentOrder.find(function (item) {
+                    return item.id === '25';
+                });
+
+                if (promoItem) {
+                    var _sum = this.amountOrder - promoItem.price;
+
+                    if (_sum >= 1500) {
+                        this.promoError = false;
+                    } else {
+                        _sum = 1500 - this.amountOrder + promoItem.price;
+                        this.errors = true;
+                        this.orderErrorText = "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u043E\u0442 1500 \u0440\u0443\u0431\u043B\u0435\u0439. \u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 ".concat(_sum, " \u0440\u0443\u0431\u043B\u0435\u0439.");
+                        this.orderError = true;
+                    }
+                } else {
+                    this.promoError = false;
+                }
+
+                this.date = $('#datepicker').val()
+
+                if(!this.time){
+                    this.errors = true;
+                    this.dateError = true;
+                }
+
                 if (!this.errors) {
+                    this.currentOrder.forEach(function (item) {
+                        delete item['id'];
+                    });
 
-                    this.currentOrder.forEach(item => {
-                        delete item['id']
-                    })
-
-                   /*let order = this.currentOrder.map(item => {
-                        return `Наименование: ${item.title} - Стоимость: ${item.price} рублей - Кол-во: ${item.number} шт.`;
-                    })*/
-
-                    let formData = new FormData(form);
-
+                    var formData = new FormData(form);
                     formData.append('message', JSON.stringify(this.currentOrder));
                     formData.append('sum', String(this.amountOrder));
-
+                    formData.append('date', String(this.date))
+                    formData.append('time', String(this.time))
 
                     if (this.check1) {
                         formData.append('payment', 'Наличными');
@@ -271,49 +343,83 @@ window.onload = () => {
                     fetch('/send.php', {
                         method: 'POST',
                         body: formData
-                    })
-                        .then((res) => {
-                            if (res.ok) {
-                                location.assign("/thanks.html");
-                            } else {
-                                console.log('Заказ не отправился!');
-                            }
-                        })
+                    }).then(function (res) {
+                        if (res.ok) {
+                            location.assign("/thanks.html");
+                        } else {
+                            console.log('Заказ не отправился!');
+                        }
+                    });
                 }
             },
-            searchForm(target){
-                if(target.hasAttribute('action')){
+            searchForm: function searchForm(target) {
+                if (target.hasAttribute('action')) {
                     return target;
-                }else {
+                } else {
                     target = target.parentElement;
                     return this.searchForm(target);
                 }
             },
-            checkCheckbox(){
+            checkCheckbox: function checkCheckbox() {
                 this.check1 = !this.check1;
                 this.check2 = !this.check2;
+            },
+            initDatePicker(){
+                let date = new Date()
+                let dateDelivery;
+                let disabledDays = [0]
+                if(date.getHours() >= 10){
+                    dateDelivery = date
+                    let currentDate = dateDelivery.getDate()
+                    let currentDay = dateDelivery.getDay()
+                    currentDay !== 6 ? dateDelivery.setDate(++currentDate) : dateDelivery.setDate(currentDate + 2)
+
+                }else {
+                    dateDelivery = date
+                }
+
+                this.datePicker = $('#datepicker').datepicker({
+                    minDate: dateDelivery,
+                    weekends: [0],
+                    autoClose: true,
+                    onRenderCell: function (date, cellType) {
+                        if (cellType == 'day') {
+                            var day = date.getDay(),
+                                isDisabled = disabledDays.indexOf(day) != -1;
+                            return {
+                                disabled: isDisabled
+                            }
+                        }
+                    }
+                }).data('datepicker')
+
+                this.datePicker.selectDate(dateDelivery)
+
+                this.date = $('#datepicker').val()
+            },
+            updateTimeDelivery(e){
+                this.time = e.target.textContent
+                $('.form-time__item').removeClass('form-time__item--active')
+                e.target.classList.add('form-time__item--active')
             }
         },
-        mounted(){
+        mounted: function mounted() {
+            var _this2 = this;
 
             this.initEventsScroll();
-
+            this.initDatePicker();
             this.getHeightPromoSection();
-
-           /* window.addEventListener('resize', () => {
-                this.getHeightPromoSection()
-            })*/
-
-            //window.addEventListener('scroll', this.fixedHeader);
-
+            window.addEventListener('resize', function () {
+                _this2.getHeightPromoSection();
+            });
+            window.addEventListener('scroll', this.fixedHeader);
             this.categoriesMenu = document.querySelector('.menu-block');
             this.sectionMenu = document.querySelector('.menu');
             this.productsBlocks = this.sectionMenu.querySelectorAll('.catalog-block');
-            this.productsBlocks = [...this.productsBlocks];
-
+            this.productsBlocks = _toConsumableArray(this.productsBlocks);
             this.catalogItems = document.querySelectorAll('.catalog-item');
-        },
-    })
+        }
+    });
 
     try {
         // Slider Best Products
@@ -531,8 +637,4 @@ window.onload = () => {
     } catch (e) {
         console.log(e + 'products sliders');
     }
-
-
-}
-
-
+};
