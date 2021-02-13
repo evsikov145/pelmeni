@@ -95,8 +95,17 @@
       }
     }
     .form-item {
+      position: relative;
       input {
         max-width: 230px;
+      }
+      .glass {
+        height: 55px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0);
       }
     }
     .form-time {

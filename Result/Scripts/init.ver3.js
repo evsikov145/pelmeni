@@ -379,17 +379,34 @@ window.onload = function () {
         this.check2 = !this.check2;
       },
       initDatePicker: function initDatePicker() {
+        var _this3 = this;
+
         var date = new Date();
         var dateDelivery;
         var disabledDays = [0];
 
-        if (date.getHours() >= 10) {
+        if (date.getHours() >= 21) {
           dateDelivery = date;
           var currentDate = dateDelivery.getDate();
           var currentDay = dateDelivery.getDay();
-          currentDay !== 6 ? dateDelivery.setDate(++currentDate) : dateDelivery.setDate(currentDate + 2);
+
+          if (currentDay === 5) {
+            dateDelivery.setDate(currentDate + 3);
+          } else {
+            dateDelivery.setDate(currentDate + 2);
+          }
         } else {
           dateDelivery = date;
+
+          var _currentDate = dateDelivery.getDate();
+
+          var _currentDay = dateDelivery.getDay();
+
+          if (_currentDay === 6) {
+            dateDelivery.setDate(_currentDate + 2);
+          } else {
+            dateDelivery.setDate(++_currentDate);
+          }
         }
 
         this.datePicker = $('#datepicker').datepicker({
@@ -406,6 +423,10 @@ window.onload = function () {
             }
           }
         }).data('datepicker');
+        var glass = document.querySelector('.glass');
+        glass.addEventListener('click', function () {
+          _this3.datePicker.show();
+        });
         this.datePicker.selectDate(dateDelivery);
         this.date = $('#datepicker').val();
       },

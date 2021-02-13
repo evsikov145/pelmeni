@@ -368,14 +368,24 @@ window.onload = function () {
                 let date = new Date()
                 let dateDelivery;
                 let disabledDays = [0]
-                if(date.getHours() >= 10){
+                if(date.getHours() >= 21){
                     dateDelivery = date
                     let currentDate = dateDelivery.getDate()
                     let currentDay = dateDelivery.getDay()
-                    currentDay !== 6 ? dateDelivery.setDate(++currentDate) : dateDelivery.setDate(currentDate + 2)
-
+                    if(currentDay === 5 ){
+                        dateDelivery.setDate(currentDate + 3)
+                    }else {
+                        dateDelivery.setDate(currentDate + 2)
+                    }
                 }else {
                     dateDelivery = date
+                    let currentDate = dateDelivery.getDate()
+                    let currentDay = dateDelivery.getDay()
+                    if(currentDay === 6){
+                        dateDelivery.setDate(currentDate + 2)
+                    }else {
+                        dateDelivery.setDate(++currentDate)
+                    }
                 }
 
                 this.datePicker = $('#datepicker').datepicker({
@@ -392,6 +402,11 @@ window.onload = function () {
                         }
                     }
                 }).data('datepicker')
+
+                const glass = document.querySelector('.glass');
+                glass.addEventListener('click', ()=> {
+                    this.datePicker.show()
+                })
 
                 this.datePicker.selectDate(dateDelivery)
 
