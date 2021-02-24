@@ -409,8 +409,6 @@ window.onload = function () {
                 })
 
                 this.datePicker.selectDate(dateDelivery)
-
-                this.date = $('#datepicker').val()
             },
             updateTimeDelivery(e){
                 this.time = e.target.textContent

@@ -428,7 +428,6 @@ window.onload = function () {
           _this3.datePicker.show();
         });
         this.datePicker.selectDate(dateDelivery);
-        this.date = $('#datepicker').val();
       },
       updateTimeDelivery: function updateTimeDelivery(e) {
         this.time = e.target.textContent;
