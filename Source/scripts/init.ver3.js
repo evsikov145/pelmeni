@@ -373,7 +373,10 @@ window.onload = function () {
                     let currentDate = dateDelivery.getDate()
                     let currentDay = dateDelivery.getDay()
                     if(currentDay === 5 ){
-                        dateDelivery.setDate(currentDate + 3)
+                        dateDelivery.setDate(currentDate + 4) //временно ( 8 марта )
+                        //dateDelivery.setDate(currentDate + 3)
+                    }else if(currentDay === 6 ){
+                        dateDelivery.setDate(currentDate + 3) //временно ( 8 марта )
                     }else {
                         dateDelivery.setDate(currentDate + 2)
                     }
@@ -382,7 +385,10 @@ window.onload = function () {
                     let currentDate = dateDelivery.getDate()
                     let currentDay = dateDelivery.getDay()
                     if(currentDay === 6){
-                        dateDelivery.setDate(currentDate + 2)
+                        dateDelivery.setDate(currentDate + 3)//временно ( 8 марта )
+                        //dateDelivery.setDate(currentDate + 2)
+                    }else if(currentDay === 7){
+                        dateDelivery.setDate(currentDate + 2)//временно ( 8 марта )
                     }else {
                         dateDelivery.setDate(++currentDate)
                     }
@@ -396,6 +402,9 @@ window.onload = function () {
                         if (cellType == 'day') {
                             var day = date.getDay(),
                                 isDisabled = disabledDays.indexOf(day) != -1;
+                            if(date.getDate() == 8){ //временно ( 8 марта )
+                                isDisabled = true
+                            }
                             return {
                                 disabled: isDisabled
                             }

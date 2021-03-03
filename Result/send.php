@@ -16,7 +16,7 @@ $time = $_POST['time'];
 if(isset($data) && !empty($data) ){
    $content = "\r\n";
    foreach ($data as $key => $value){
-       $content .= "\r\n".$value['title']." - Стоимость: ".$value['price']." - Количество: ".$value['number'].";"."\r\n";
+       $content .= $value['title']." - Стоимость: ".$value['price']." - Количество: ".$value['number'].";"."\r\n";
    }
 
 $paramsArray = array(

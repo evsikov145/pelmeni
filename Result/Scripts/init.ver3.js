@@ -391,7 +391,10 @@ window.onload = function () {
           var currentDay = dateDelivery.getDay();
 
           if (currentDay === 5) {
-            dateDelivery.setDate(currentDate + 3);
+            dateDelivery.setDate(currentDate + 4); //временно ( 8 марта )
+            //dateDelivery.setDate(currentDate + 3)
+          } else if (currentDay === 6) {
+            dateDelivery.setDate(currentDate + 3); //временно ( 8 марта )
           } else {
             dateDelivery.setDate(currentDate + 2);
           }
@@ -403,7 +406,10 @@ window.onload = function () {
           var _currentDay = dateDelivery.getDay();
 
           if (_currentDay === 6) {
-            dateDelivery.setDate(_currentDate + 2);
+            dateDelivery.setDate(_currentDate + 3); //временно ( 8 марта )
+            //dateDelivery.setDate(currentDate + 2)
+          } else if (_currentDay === 7) {
+            dateDelivery.setDate(_currentDate + 2); //временно ( 8 марта )
           } else {
             dateDelivery.setDate(++_currentDate);
           }
@@ -417,6 +423,12 @@ window.onload = function () {
             if (cellType == 'day') {
               var day = date.getDay(),
                   isDisabled = disabledDays.indexOf(day) != -1;
+
+              if (date.getDate() == 8) {
+                //временно ( 8 марта )
+                isDisabled = true;
+              }
+
               return {
                 disabled: isDisabled
               };
