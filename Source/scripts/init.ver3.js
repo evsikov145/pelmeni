@@ -284,7 +284,9 @@ window.onload = function () {
                     form.classList.add('form--error_address');
                 }
 
-                if (this.phone === '') {
+                const reg = /^[0-9]{11}$/
+
+                if (this.phone === '' || !reg.test(this.phone)) {
                     this.phoneError = true;
                     this.errors = true;
                     form.classList.add('form--error_phone');
@@ -324,6 +326,7 @@ window.onload = function () {
                 }
 
                 if (!this.errors) {
+
                     this.currentOrder.forEach(function (item) {
                         delete item['id'];
                     });
@@ -340,16 +343,43 @@ window.onload = function () {
                         formData.append('payment', 'Переводом на банковскую карту');
                     }
 
+                    this.checkBtnSubmit(true)
+
                     fetch('/send.php', {
                         method: 'POST',
                         body: formData
                     }).then(function (res) {
                         if (res.ok) {
+                            const form = document.querySelector('.order-form');
+                            const btn = form.querySelector('.btn');
+                            const path = btn.querySelector('path');
+                            const text = btn.querySelector('.btn__text');
+                            path.style.fill='#ef0031';
+                            text.textContent = 'Оформить заказ'
                             location.assign("/thanks.html");
                         } else {
+                            const form = document.querySelector('.order-form');
+                            const btn = form.querySelector('.btn');
+                            const path = btn.querySelector('path');
+                            const text = btn.querySelector('.btn__text');
+                            path.style.fill='#ef0031';
+                            text.textContent = 'Оформить заказ'
                             console.log('Заказ не отправился!');
                         }
                     });
+                }
+            },
+            checkBtnSubmit(bool){
+                const form = document.querySelector('.order-form');
+                const btn = form.querySelector('.btn');
+                const path = btn.querySelector('path');
+                const text = btn.querySelector('.btn__text');
+                if(bool){
+                    path.style.fill='#37b143';
+                    text.textContent = 'Отправка заказа...'
+                }else {
+                    path.style.fill='#ef0031';
+                    text.textContent = 'Оформить заказ'
                 }
             },
             searchForm: function searchForm(target) {

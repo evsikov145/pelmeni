@@ -299,7 +299,7 @@ window.onload = function () {
           form.classList.add('form--error_address');
         }
 
-        var reg = /^[0-9]{11}$/;
+        var reg = /^[0-9]+$/;
 
         if (this.phone === '' || !reg.test(this.phone)) {
           this.phoneError = true;
