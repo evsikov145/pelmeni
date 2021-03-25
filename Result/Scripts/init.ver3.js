@@ -300,8 +300,9 @@ window.onload = function () {
         }
 
         var reg = /^[0-9]{11}$/;
+        var newPhone = this.phone.replaceAll('+', '').replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '').replaceAll("-", '');
 
-        if (this.phone === '' || !reg.test(this.phone)) {
+        if (newPhone === '' || !reg.test(newPhone)) {
           this.phoneError = true;
           this.errors = true;
           form.classList.add('form--error_phone');
