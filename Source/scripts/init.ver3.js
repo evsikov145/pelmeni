@@ -401,7 +401,7 @@ window.onload = function () {
                 const btn = form.querySelector('.btn');
                 if(bool){
                     btn.textContent = 'Отправка заказа...'
-                    btn.getAttribute('disabled', 'disabled')
+                    btn.setAttribute('disabled', 'disabled')
                 }else {
                     btn.textContent = 'Оформить заказ'
                     btn.removeAttribute('disabled')

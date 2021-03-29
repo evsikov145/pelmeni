@@ -419,7 +419,7 @@ window.onload = function () {
 
         if (bool) {
           btn.textContent = 'Отправка заказа...';
-          btn.getAttribute('disabled', 'disabled');
+          btn.setAttribute('disabled', 'disabled');
         } else {
           btn.textContent = 'Оформить заказ';
           btn.removeAttribute('disabled');
