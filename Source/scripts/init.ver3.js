@@ -257,6 +257,7 @@ window.onload = function () {
                 return product.price * number;
             },
             submitForm: function submitForm(event) {
+                event.preventDefault()
                 var form = this.searchForm(event.target);
                 form.className = 'form';
                 this.nameError = false;
@@ -270,18 +271,30 @@ window.onload = function () {
                     this.orderErrorText = "\u0412 \u0437\u0430\u043A\u0430\u0437\u0435 \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0442\u043E\u0432\u0430\u0440.";
                     this.errors = true;
                     this.orderError = true;
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 if (this.name === '') {
                     this.nameError = true;
                     this.errors = true;
                     form.classList.add('form--error_name');
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 if (this.address === '') {
                     this.addressError = true;
                     this.errors = true;
                     form.classList.add('form--error_address');
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 const reg = /^[0-9]{11}$/
@@ -292,6 +305,10 @@ window.onload = function () {
                     this.phoneError = true;
                     this.errors = true;
                     form.classList.add('form--error_phone');
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 if (this.amountOrder < 1500 && !this.orderError) {
@@ -299,6 +316,10 @@ window.onload = function () {
                     var sum = 1500 - this.amountOrder;
                     this.orderErrorText = "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u043E\u0442 1500 \u0440\u0443\u0431\u043B\u0435\u0439. \u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 ".concat(sum, " \u0440\u0443\u0431\u043B\u0435\u0439.");
                     this.orderError = true;
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 var promoItem = this.currentOrder.find(function (item) {
@@ -315,6 +336,10 @@ window.onload = function () {
                         this.errors = true;
                         this.orderErrorText = "\u0417\u0430\u043A\u0430\u0437 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u043E\u0442 1500 \u0440\u0443\u0431\u043B\u0435\u0439. \u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 ".concat(_sum, " \u0440\u0443\u0431\u043B\u0435\u0439.");
                         this.orderError = true;
+                        window.scrollBy({
+                            top:-500,
+                            behavior:"smooth"
+                        })
                     }
                 } else {
                     this.promoError = false;
@@ -325,6 +350,10 @@ window.onload = function () {
                 if(!this.time){
                     this.errors = true;
                     this.dateError = true;
+                    window.scrollBy({
+                        top:-500,
+                        behavior:"smooth"
+                    })
                 }
 
                 if (!this.errors) {
@@ -354,18 +383,14 @@ window.onload = function () {
                         if (res.ok) {
                             const form = document.querySelector('.order-form');
                             const btn = form.querySelector('.btn');
-                            const path = btn.querySelector('path');
-                            const text = btn.querySelector('.btn__text');
-                            path.style.fill='#ef0031';
-                            text.textContent = 'Оформить заказ'
+                            btn.textContent = 'Оформить заказ'
+                            btn.removeAttribute('disabled')
                             location.assign("/thanks.html");
                         } else {
                             const form = document.querySelector('.order-form');
                             const btn = form.querySelector('.btn');
-                            const path = btn.querySelector('path');
-                            const text = btn.querySelector('.btn__text');
-                            path.style.fill='#ef0031';
-                            text.textContent = 'Оформить заказ'
+                            btn.textContent = 'Ошибка отправки'
+                            btn.removeAttribute('disabled')
                             console.log('Заказ не отправился!');
                         }
                     });
@@ -374,14 +399,12 @@ window.onload = function () {
             checkBtnSubmit(bool){
                 const form = document.querySelector('.order-form');
                 const btn = form.querySelector('.btn');
-                const path = btn.querySelector('path');
-                const text = btn.querySelector('.btn__text');
                 if(bool){
-                    path.style.fill='#37b143';
-                    text.textContent = 'Отправка заказа...'
+                    btn.textContent = 'Отправка заказа...'
+                    btn.getAttribute('disabled', 'disabled')
                 }else {
-                    path.style.fill='#ef0031';
-                    text.textContent = 'Оформить заказ'
+                    btn.textContent = 'Оформить заказ'
+                    btn.removeAttribute('disabled')
                 }
             },
             searchForm: function searchForm(target) {
@@ -424,6 +447,7 @@ window.onload = function () {
                     minDate: dateDelivery,
                     weekends: [0],
                     autoClose: true,
+                    toggleSelected:false,
                     onRenderCell: function (date, cellType) {
                         if (cellType == 'day') {
                             var day = date.getDay(),
@@ -432,6 +456,9 @@ window.onload = function () {
                                 disabled: isDisabled
                             }
                         }
+                    },
+                    onSelect(formattedDate, date, inst){
+                        console.log(inst)
                     }
                 }).data('datepicker')
 

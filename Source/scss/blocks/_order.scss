@@ -143,6 +143,20 @@
       &__text {
         left: 17%;
       }
+      &--submit {
+        outline: none;
+        border:none;
+        background: url("../images/svg/btn.svg") center no-repeat;
+        background-size: 100%;
+        transition: 1s;
+        color: white;
+        font-size: 18px;
+        font-family: $font-balsamiq;
+        &:hover {
+          background: url("../images/svg/btn-hover.svg") center no-repeat;
+          background-size: 100%;
+        }
+      }
     }
   }
 }
@@ -221,6 +235,19 @@
       margin-right: 20px;
     }
   }
+  .form-action {
+    flex-direction: column;
+  }
+  .order-form {
+    .form-time {
+      margin-left: 0;
+    }
+    .form-item {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
 }
 
 @media all and (max-width: 500px){
@@ -242,6 +269,11 @@
   }
   .order-form {
     padding: 25px 20px;
+    .form-block {
+      p {
+        margin-left: 0;
+      }
+    }
   }
 }
 
